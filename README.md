@@ -48,7 +48,20 @@ Milestone Project: Interactive Frontend Development
 
 #### CLIENT GOALS
 
+- To provide an intuitive website that a user can understand the site’s main purpose, navigate easily and wants to use for a long period.
+- To provide a game which can improve attention to detail and concentration skills and memory.
+
 #### FIRST TIME VISITORS
+
+- As a user,
+    - I want to know what this site is about immediately so that I can quickly decide whether I want to explore it more.
+    - I want to be able to navigate pages easily so that I can quickly find content.
+    - I want to know how to play the game so that I can enjoy it fully.
+    - I want to be able to play the game regardless of the device so that I can play it anywhere I want.
+    - I want to be able to change the difficulty settings so that my kids can play it too.
+    - I want to get a warning when there’s a little time left so that I can speed up.
+    - I want to be able to restart a game during play so that I can reset settings.
+    - I want to be able to check my scores so that I can see how good my memory is.
 
 ## DESIGN
 
