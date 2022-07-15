@@ -1,34 +1,40 @@
 [
     {
     "name": "Simon",
-    "time": 1.2,
+    "difficulty": "easy",
     "score": 56
     },
     {
     "name": "Peter",
-    "time": 1.2,
+    "difficulty": "hard",
     "score": 50
     },
     {
     "name": "Kate",
-    "time": 1.2,
+    "difficulty": "medium",
     "score": 36
     },
     {
     "name": "Sophie",
-    "time": 1.2,
+    "difficulty": "easy",
     "score": 86
     },
     {
     "name": "Liam",
-    "time": 1.2,
+    "difficulty": "hard",
     "score": 56
     }
     ,
     {
     "name": "Barry",
-    "time": 1.2,
+    "difficulty": "medium",
     "score": 256
+    }
+    ,
+    {
+    "name": "Sejung",
+    "difficulty": "medium",
+    "score": 126
     }
     
 ]
