@@ -9,10 +9,9 @@
     <meta name="keywords" content="#">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/game.css">
     <title>Document</title>
 </head>
-
 <body>
     <!-- Header / Navigation bar -->
     <header>
@@ -35,31 +34,137 @@
         </nav>
     </header>
 
-    <main>
-        <!-- Game rules -->
-        <h3>How to Play</h3>
-        <p>Choose two cards and if the emojis underneath match, you will receive a point.
-            <br>There are a total of 8 avaliable on easy level, 10 points on medium level and 12 points on hard level.
-            <br>Completing the board is the quickest time will earn extra points and if you are fast enough, a place on
-            illustrous leaderboard.
-            <br>The timer will begin once you flip your first card.
-            <br>Good Luck!</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                <h2 class="game-header">Gang of Eight Presents</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                <div class="instructions">
+                    <h4 class="instructions-header">how to play!</h4>
+                    <p>Choose two cards and if the emojis underneath match, you will receive a point.
+                        <br>There are a total of 8 available on easy level, 10 points on medium level and 12 points on
+                        hard level.
+                        <br>Completing the board is the quickest time will earn extra points and if you are fast enough,
+                        a place on
+                        illustrious leader board.
+                        <br>The timer will begin once you flip your first card.
+                        <br>Good Luck!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Game Difficulty / Player Name -->
-        <form id="form">
-            <h2>Choose Your Difficulty Level</h2>
-            <input id="easy" type="radio" name="difficulty" value="Easy" checked>
-            <label for="easy">Easy</label>
-            <input id="normal" type="radio" name="difficulty" value="Normal">
-            <label for="normal">Normal</label>
-            <input id="hard" type="radio" name="difficulty" value="Hard">
-            <label for="hard">Hard</label>
+    <div class="game-container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="easy-level" id="easy-level-container">
+                    <div class="card card-back card-easy" id="card-easy-0"></div>
+                    <div class="card card-back card-easy" id="card-easy-1"></div>
+                    <div class="card card-back card-easy" id="card-easy-2"></div>
+                    <div class="card card-back card-easy" id="card-easy-3"></div>
+                    <div class="card card-back card-easy" id="card-easy-4"></div>
+                    <div class="card card-back card-easy" id="card-easy-5"></div>
+                    <div class="card card-back card-easy" id="card-easy-6"></div>
+                    <div class="card card-back card-easy" id="card-easy-7"></div>
+                    <div class="card card-back card-easy" id="card-easy-8"></div>
+                    <div class="card card-back card-easy" id="card-easy-9"></div>
+                    <div class="card card-back card-easy" id="card-easy-10"></div>
+                    <div class="card card-back card-easy" id="card-easy-11"></div>
+                    <div class="card card-back card-easy" id="card-easy-12"></div>
+                    <div class="card card-back card-easy" id="card-easy-13"></div>
+                    <div class="card card-back card-easy" id="card-easy-14"></div>
+                    <div class="card card-back card-easy" id="card-easy-15"></div>
+                </div>
+                <div class="medium-level hide" id="medium-level-container">
+                    <div class="card card-back card-medium" id="card-medium-0"></div>
+                    <div class="card card-back card-medium" id="card-medium-1"></div>
+                    <div class="card card-back card-medium" id="card-medium-2"></div>
+                    <div class="card card-back card-medium" id="card-medium-3"></div>
+                    <div class="card card-back card-medium" id="card-medium-4"></div>
+                    <div class="card card-back card-medium" id="card-medium-5"></div>
+                    <div class="card card-back card-medium" id="card-medium-6"></div>
+                    <div class="card card-back card-medium" id="card-medium-7"></div>
+                    <div class="card card-back card-medium" id="card-medium-8"></div>
+                    <div class="card card-back card-medium" id="card-medium-9"></div>
+                    <div class="card card-back card-medium" id="card-medium-10"></div>
+                    <div class="card card-back card-medium" id="card-medium-11"></div>
+                    <div class="card card-back card-medium" id="card-medium-12"></div>
+                    <div class="card card-back card-medium" id="card-medium-13"></div>
+                    <div class="card card-back card-medium" id="card-medium-14"></div>
+                    <div class="card card-back card-medium" id="card-medium-15"></div>
+                    <div class="card card-back card-medium" id="card-medium-16"></div>
+                    <div class="card card-back card-medium" id="card-medium-17"></div>
+                    <div class="card card-back card-medium" id="card-medium-18"></div>
+                    <div class="card card-back card-medium" id="card-medium-19"></div>
+                </div>
+                <div class="hard-level hide" id="hard-level-container">
+                    <div class="card card-back card-hard" id="card-hard-0"></div>
+                    <div class="card card-back card-hard" id="card-hard-1"></div>
+                    <div class="card card-back card-hard" id="card-hard-2"></div>
+                    <div class="card card-back card-hard" id="card-hard-3"></div>
+                    <div class="card card-back card-hard" id="card-hard-4"></div>
+                    <div class="card card-back card-hard" id="card-hard-5"></div>
+                    <div class="card card-back card-hard" id="card-hard-6"></div>
+                    <div class="card card-back card-hard" id="card-hard-7"></div>
+                    <div class="card card-back card-hard" id="card-hard-8"></div>
+                    <div class="card card-back card-hard" id="card-hard-9"></div>
+                    <div class="card card-back card-hard" id="card-hard-10"></div>
+                    <div class="card card-back card-hard" id="card-hard-11"></div>
+                    <div class="card card-back card-hard" id="card-hard-12"></div>
+                    <div class="card card-back card-hard" id="card-hard-13"></div>
+                    <div class="card card-back card-hard" id="card-hard-14"></div>
+                    <div class="card card-back card-hard" id="card-hard-15"></div>
+                    <div class="card card-back card-hard" id="card-hard-16"></div>
+                    <div class="card card-back card-hard" id="card-hard-17"></div>
+                    <div class="card card-back card-hard" id="card-hard-18"></div>
+                    <div class="card card-back card-hard" id="card-hard-19"></div>
+                    <div class="card card-back card-hard" id="card-hard-20"></div>
+                    <div class="card card-back card-hard" id="card-hard-21"></div>
+                    <div class="card card-back card-hard" id="card-hard-22"></div>
+                    <div class="card card-back card-hard" id="card-hard-23"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <h2>Player name</h2>
-            <input id="username" type="text" required>
-            <button type="submit">Start</button>
-        </form>
-    </main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 offset-sm-3 col-md-2 col-lg-2 text-center">
+                <button type="button" class="btn easy level-selector" id="easy">easy</button>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-2 text-center">
+                <button type="button" class="btn medium level-selector" id="medium">medium</button>
+            </div>
+            <div class="col-sm-1 col-md-1 col-lg-1 text-center">
+                <button type="button" class="btn hard level-selector" id="hard">hard</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 offset-sm-3 col-md-2 col-lg-2 text-center">
+                <div class="movescounter" id="movescounter">moves: 0</div>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-2 text-center">
+                <div id="score">0 / 10 </div>
+            </div>
+            <div class="col-sm-1 col-md-1 col-lg-1 text-center">
+                <button type="button" class="btn reset" id="reset">reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="winModal">
+        <div class="congrats">
+            <h3>congratulations!!!</h3>
+        </div>
+        <div class="modal-content">
+            <p>you have found all the cards!, Would you like to play again?</p>
+        </div>
+        <button type="button" class="modal-close-button" id="close">close</button>
+        <button type="button" class="modal-replay-button" id="replay">replay</button>
+    </div>
 
     <!-- Bootstrap CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -71,8 +176,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
     </script>
-    <!-- Custom JS Script -->
+    <!-- Custom JS Scripts -->
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/game.js"></script>
+
 </body>
 
 </html>

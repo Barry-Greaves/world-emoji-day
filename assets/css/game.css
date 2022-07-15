@@ -1,0 +1,265 @@
+body {
+    background-color: #202020;
+}
+
+/* header and titles section */
+
+.navbar {
+    background-color: #ff9a18;
+}
+
+.navbar-brand {
+    color: #202020;
+    margin: auto;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+/* modal */
+.modal {
+    background-color: #202020;
+    display: none;
+    position: fixed;
+    top: 250px;
+    left: 340px;
+    z-index: 1;
+    height: 50%;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px #ff9a18 solid;
+}
+
+.congrats {
+    color: #ff0000;
+    margin: 15px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.modal-content {
+    background-color: #202020;
+    color: #c2b280;
+    margin: 30px auto;
+    padding: 22px;
+    height: 40%;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    border: 4px #ff9a18 solid;
+}
+
+.modal-content p {
+    margin: 5px;
+    text-transform: uppercase;
+}
+
+.modal-close-button,
+.modal-replay-button {
+    background-color: #ff9a18;
+    color: #202020;
+    margin: auto;
+    padding: 10px;
+    min-width: 110px;
+    font-size: larger;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 3px #c2b280 solid;
+}
+
+.game-header {
+    color: #c2b280;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase; 
+}
+
+/* cards section */
+.card {
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    margin: 15px;
+    border-radius: 20px;
+    border: 3px #ff9a18 solid;
+}
+
+.card-back {
+    background-image: url('../images/smiley.webp');
+    background-repeat: no-repeat;
+}
+
+/* levels section */
+.easy-level, .medium-level, .hard-level {
+    text-align: center;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.easy-level {
+    max-width: 650px;
+}
+
+.medium-level {
+    max-width: 750px;
+}
+
+.hard-level {
+    max-width: 900px;
+}
+
+/* instructions section */
+.instructions-header {
+    color: #ff9a18;
+    margin: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.instructions {
+    color: #c2b280;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 3px #c2b280 solid;
+}
+
+/* buttons section */
+
+.btn {
+    background-color: #ff9a18;
+    color: #202020;
+    min-width: 100px;
+    margin: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 3px solid #c2b280;
+}
+
+.reset {
+    font-size: larger;
+    padding: 10px;
+    min-width: 110px;
+}
+
+/* scores and moves counter */
+#score, .movescounter{
+    background-color: #ff9a18;
+    color: #202020;
+    max-width: 100px;
+    margin: auto;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 3px solid #c2b280;
+}
+
+#score {
+    padding: 5px;
+}
+
+
+.movescounter {
+    margin-bottom: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+/* hover section */
+.navbar-brand h2 {
+    color: #202020;
+}
+
+.card:hover {
+    animation-name: div-zoom;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    box-shadow: #ff9a18 0px 20px 30px;
+}
+
+.easy:hover, .medium:hover, .hard:hover, .play:hover {
+    color: #202020;
+    animation-name: div-zoom;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.easy:hover {
+    background-color: #28921e;
+    border: 3px solid #28921e;
+    box-shadow: 0px 20px 30px #28921e;
+}
+
+.medium:hover {
+    background-color: #fffc00; 
+    border: 3px solid #fffc00;
+    box-shadow: 0px 20px 30px #fffc00;
+}
+
+.hard:hover {
+    background-color: #ff0000; 
+    border: 3px solid #ff0000;
+    box-shadow: 0px 20px 30px#ff0000;
+}
+
+.reset:hover {
+    background-color: #ff9a18; 
+    box-shadow: 0px 20px 30px #ff9a18;
+    border: 3px #ff9a18 solid;
+}
+
+.modal-close-button:hover,
+.modal-replay-button:hover  {
+    background-color: #ff9a18; 
+    box-shadow: 0px 20px 30px #ff9a18;
+    border: 3px #ff9a18 solid;
+}
+
+/* footer */
+
+.footer {
+    height: 75px;
+    background-color: #ff9a18;
+}
+
+.socialmedia {
+    font-size: larger;
+    word-spacing: 30px;
+    margin: 15px;
+    padding: 0;
+    text-align: center;
+}
+
+.fa {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.socialmedia li,
+.socialmedia a {
+    color: #202020;
+    display: inline-block;
+}
+
+/* other */
+
+@keyframes div-zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.hide {
+    display: none;
+}
