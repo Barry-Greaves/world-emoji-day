@@ -1,0 +1,34 @@
+[
+    {
+    "name": "Simon",
+    "time": 1.2,
+    "score": 56
+    },
+    {
+    "name": "Peter",
+    "time": 1.2,
+    "score": 50
+    },
+    {
+    "name": "Kate",
+    "time": 1.2,
+    "score": 36
+    },
+    {
+    "name": "Sophie",
+    "time": 1.2,
+    "score": 86
+    },
+    {
+    "name": "Liam",
+    "time": 1.2,
+    "score": 56
+    }
+    ,
+    {
+    "name": "Barry",
+    "time": 1.2,
+    "score": 256
+    }
+    
+]
