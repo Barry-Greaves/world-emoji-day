@@ -1,0 +1,40 @@
+[
+    {
+    "name": "Simon",
+    "difficulty": "easy",
+    "score": 56
+    },
+    {
+    "name": "Peter",
+    "difficulty": "hard",
+    "score": 50
+    },
+    {
+    "name": "Kate",
+    "difficulty": "medium",
+    "score": 36
+    },
+    {
+    "name": "Sophie",
+    "difficulty": "easy",
+    "score": 86
+    },
+    {
+    "name": "Liam",
+    "difficulty": "hard",
+    "score": 56
+    }
+    ,
+    {
+    "name": "Barry",
+    "difficulty": "medium",
+    "score": 256
+    }
+    ,
+    {
+    "name": "Sejung",
+    "difficulty": "medium",
+    "score": 126
+    }
+    
+]
