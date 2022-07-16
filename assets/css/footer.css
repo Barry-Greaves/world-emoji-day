@@ -1,0 +1,17 @@
+.collaborator-list {
+    display:flex;
+}
+
+.collaborator {
+    display: flex;
+    margin: auto 1rem;
+}
+
+.github-icon, 
+.linkedin-icon {
+    width: 1.5rem;
+}
+
+.collaborator-name {
+    margin: auto .5rem;
+}
