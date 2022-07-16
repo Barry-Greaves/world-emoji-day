@@ -122,6 +122,12 @@ h1 {
 
 }
 
+/* Timer */
+.timer {
+    font-size: 5rem;
+    color: #fee36e;
+}
+
 /* cards section */
 .card {
     display: inline-block;
