@@ -17,6 +17,43 @@ easy = easy.substring(0, easy.length - 16);
 medium = medium.substring(0, medium.length - 16);
 hard = hard.substring(0, hard.length - 16);
 
+
+let countdown;
+let timeLeft = 0;
+let mode;
+
+//timer function
+for(let button of levelSelectors){
+  button.addEventListener("click",()=>{
+    mode = button.getAttribute("data-difficulty");
+    timeLeft = mode==="easy"? 300000:mode==="medium"? 180000:60000;
+    stopCountdown();
+  countdown = setInterval(() => {
+  let minute = '0' + Math.floor(timeLeft / 60000);
+  let seconds = Math.floor(timeLeft % 60000).toString();
+  let sec = seconds.length===5? seconds.slice(0,2):seconds.length===4? ("0" + seconds).slice(0,2):"00";
+
+  document.getElementById("timer").innerText = `${minute}:${sec}`;
+
+  if (timeLeft <= 0) {
+    stopCountdown();
+  } else {
+    timeLeft -= 10;
+  }
+}, 10);
+  })
+}
+
+
+function stopCountdown() {
+  clearInterval(countdown);
+  countdown = null;
+  let resetTimer = mode==="easy"? "05:00":mode==="medium"? "03:00":"01:00";
+  document.getElementById("timer").innerText = resetTimer;
+//   resetGame();
+}
+
+
 //add random colors to cards
 let basicEmojiArray = [
     'assets/images/angry-emoji.png',
@@ -176,9 +213,12 @@ function pushMoves() {
     document.getElementById("movescounter").innerHTML = `moves: ${j - 1}`;
 }
 
-let resetButton = document.getElementById("reset");
+// let resetButton = document.getElementById("reset");
+let resetTimer = document.getElementById("reset");
 
-resetButton.addEventListener("click", resetGame);
+resetTimer.addEventListener("click", stopCountdown);
+
+// resetButton.addEventListener("click", resetGame);
 
 function resetGame() {
     j = 1;
@@ -269,5 +309,6 @@ let replayForm = document.getElementById("form");
 replayForm.addEventListener("submit", (e) => {
     e.preventDefault();
     storeResult();
-    resetGame();
+    stopCountdown();
+    // resetGame();
 });
