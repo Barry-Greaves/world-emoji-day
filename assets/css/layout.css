@@ -1,0 +1,167 @@
+body {
+    background-color: #202020;
+}
+
+/* header and titles section */
+
+.navbar {
+    background-color: #ff9a18;
+}
+
+.navbar-brand {
+    color: #202020;
+    margin: auto;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+
+
+/* levels section */
+.easy-level, .medium-level, .hard-level {
+    text-align: center;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.easy-level {
+    max-width: 650px;
+}
+
+.medium-level {
+    max-width: 750px;
+}
+
+.hard-level {
+    max-width: 900px;
+}
+
+
+/* buttons section */
+
+.btn {
+    background-color: #ff9a18;
+    color: #202020;
+    min-width: 100px;
+    margin: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 3px solid #c2b280;
+}
+
+.reset {
+    font-size: larger;
+    padding: 10px;
+    min-width: 110px;
+}
+
+/* scores and moves counter */
+#score, .movescounter{
+    background-color: #ff9a18;
+    color: #202020;
+    max-width: 100px;
+    margin: auto;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 3px solid #c2b280;
+}
+
+#score {
+    padding: 5px;
+}
+
+
+.movescounter {
+    margin-bottom: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+/* hover section */
+.navbar-brand h2 {
+    color: #202020;
+}
+
+
+
+
+
+.modal-close-button:hover,
+.modal-replay-button:hover  {
+    background-color: #ff9a18; 
+    box-shadow: 0px 20px 30px #ff9a18;
+    border: 3px #ff9a18 solid;
+}
+
+
+.hide {
+    display: none;
+}
+
+
+
+/* cards section */
+.card {
+    display: inline-block;
+    padding: 5px;
+    min-height: 50px;
+    border-radius: 15px;
+    border: 3px #ff9a18 solid;
+}
+
+.card-back {
+    background-image: url('../images/smiley.webp');
+    background-repeat: no-repeat;
+    padding:5px;
+    margin: 5px;
+}
+
+
+
+.col-3 {
+flex: 0 0 25%;
+max-width: 22%;
+}
+
+
+@media (max-width: 350px) {  
+    .card {
+        height: 50px;
+    }
+}
+
+@media (min-width: 350px) {  
+    .card {
+        height: 86px;
+    }
+}
+
+@media (min-width: 450px) {  
+    .card {
+        height: 95px;
+    }
+}
+
+
+@media (min-width: 550px) {  
+    .card {
+        height: 120px;
+    }
+}
+
+@media (min-width: 625px) {  
+    .game-tile {
+        height: 155px;
+    }
+}
+
+
+
+
