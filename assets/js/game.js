@@ -61,7 +61,7 @@ function sortColors() {
     setTimeout(function () {
         for (let i = 0; i < emojiArray.length; i++) {
             let img = document.createElement('img');
-            img.setAttribute('id', `${emojiArray[i].slice(14, -4)}`)
+            img.setAttribute('id', `${emojiArray[i].slice(14, -4)}`);
             img.style.display = 'none';
             img.style.width = '6rem';
             img.src = emojiArray[i]; // Add colors to cards in a random order
@@ -188,7 +188,7 @@ function resetGame() {
     sortColors();
     pushScore();
     pushMoves();
-};
+}
 
 function getPlayerName() {
     let playerName = document.getElementById('username').value;
@@ -198,8 +198,54 @@ function getPlayerName() {
 function getScore() {
     let defaultPoint = selectedLevel === 'easy' ? 8 : selectedLevel === 'medium' ? 10 : 12;
     let timeLeft = document.getElementById('timer').innerText;
+    let minuteToSec = timeLeft.substring(0, 2) * 60;
+    let second = timeLeft.substring(3, 5);
+    let timeLeftInSec = minuteToSec + second;
     let moves = j - 1;
-    // will go the calculation here
+    let totalScore = defaultPoint;
+
+    if (moves <= 30) {
+        totalScore *= 5;
+    } else if (moves <= 50) {
+        totalScore *= 4;
+    } else if (moves <= 70) {
+        totalScore *= 3;
+    } else {
+        totalScore *= 2;
+    }
+
+    if (selectedLevel === 'easy') {
+        if (timeLeftInSec >= 240) {
+            totalScore *= 5;
+        } else if (timeLeftInSec >= 180) {
+            totalScore *= 4;
+        } else if (timeLeftInSec >= 120) {
+            totalScore *= 3;
+        } else if (timeLeftInSec >= 60) {
+            totalScore *= 2;
+        }
+    } else if (selectedLevel === 'medium') {
+        if (timeLeftInSec >= 144) {
+            totalScore *= 5;
+        } else if (timeLeftInSec >= 108) {
+            totalScore *= 4;
+        } else if (timeLeftInSec >= 72) {
+            totalScore *= 3;
+        } else if (timeLeftInSec >= 36) {
+            totalScore *= 2;
+        }
+    } else {
+        if (timeLeftInSec >= 48) {
+            totalScore *= 5;
+        } else if (timeLeftInSec >= 36) {
+            totalScore *= 4;
+        } else if (timeLeftInSec >= 24) {
+            totalScore *= 3;
+        } else if (timeLeftInSec >= 12) {
+            totalScore *= 2;
+        }
+    }
+    return totalScore;
 }
 
 function storeResult() {
@@ -209,7 +255,7 @@ function storeResult() {
         playerName,
         selectedLevel,
         score
-    }
+    };
     return result;
 }
 
