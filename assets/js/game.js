@@ -18,37 +18,54 @@ medium = medium.substring(0, medium.length - 16);
 hard = hard.substring(0, hard.length - 16);
 
 //add random colors to cards
-let basicColorArray = [
-    '#FF6633', '#FF6633', '#FFB399', '#FFB399', '#FF33FF',
-    '#FF33FF', '#66991A', '#66991A', '#00B3E6', '#00B3E6',
-    '#FFFC00', '#FFFC00', '#28921E', '#28921E', '#FFFF99',
-    '#FFFF99'
+let basicEmojiArray = [
+    'assets/images/angry-emoji.png',
+    'assets/images/angry-emoji.png',
+    'assets/images/cool-emoji.png',
+    'assets/images/cool-emoji.png',
+    'assets/images/cowboy-emoji.png',
+    'assets/images/cowboy-emoji.png',
+    'assets/images/cursing-emoji.png',
+    'assets/images/cursing-emoji.png',
+    'assets/images/devil-emoji.png',
+    'assets/images/devil-emoji.png',
+    'assets/images/emotional-emoji.png',
+    'assets/images/emotional-emoji.png',
+    'assets/images/exploding-emoji.png',
+    'assets/images/exploding-emoji.png',
+    'assets/images/fire-emoji.png',
+    'assets/images/fire-emoji.png'
 ];
 
-let colorArray;
+let emojiArray;
 
 function sortColors() {
-    colorArray = basicColorArray;
+    emojiArray = basicEmojiArray;
     if (selectedLevel == "easy") {
-        colorArray = basicColorArray;
+        emojiArray = basicEmojiArray;
         cards = document.getElementsByClassName("card-easy");
     } else if (selectedLevel == "medium") {
-        colorArray.push('#3366E6', '#3366E6', '#FF9A18', '#FF9A18');
+        emojiArray.push('assets/images/grinning-emoji.png', 'assets/images/grinning-emoji.png', 'assets/images/lol-emoji.png', 'assets/images/lol-emoji.png');
         cards = document.getElementsByClassName("card-medium");
     } else if (selectedLevel == "hard") {
-        colorArray.push('#3366E6', '#3366E6', '#FF9A18', '#FF9A18', '#99FF99', '#99FF99', '#C2B280', '#C2B280');
+        emojiArray.push('assets/images/grinning-emoji.png', 'assets/images/grinning-emoji.png', 'assets/images/lol-emoji.png', 'assets/images/lol-emoji.png', 'assets/images/loving-hearts.png', 'assets/images/loving-hearts.png', 'assets/images/party-emoji.png', 'assets/images/party-emoji.png');
         cards = document.getElementsByClassName("card-hard");
     }
 
-    colorArray.sort(() => 0.5 - Math.random()); // Randomise colors
+    emojiArray.sort(() => 0.5 - Math.random()); // Randomise colors
 
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener("click", flipCard);
     }
 
     setTimeout(function () {
-        for (let i = 0; i < colorArray.length; i++) {
-            cards[i].style.backgroundColor = colorArray[i]; // Add colors to cards in a random order
+        for (let i = 0; i < emojiArray.length; i++) {
+            let img = document.createElement('img');
+            img.setAttribute('id', `${emojiArray[i].slice(14, -4)}`)
+            img.style.display = 'none';
+            img.style.width = '6rem';
+            img.src = emojiArray[i]; // Add colors to cards in a random order
+            cards[i].appendChild(img);
         }
     }, 500);
 }
@@ -57,6 +74,9 @@ function resetCards() {
     for (let k = 0; k < cards.length; k++) {
         cards[k].classList.add("card-back");
         cards[k].classList.remove("card-front");
+    }
+    for (let l = 0; l < cards.length; l++) {
+        cards[l].firstChild.remove();
     }
 }
 
@@ -87,8 +107,8 @@ sortColors();
 
 let cardOne;
 let cardTwo;
-let cardOneColor;
-let cardTwoColor;
+let cardOneEmoji;
+let cardTwoEmoji;
 let busy = false;
 const winModal = document.getElementById("winModal");
 
@@ -107,28 +127,31 @@ function flipCard() {
     if (!busy) {
         busy = true;
         this.classList.remove("card-back"); // On click, flip the card
+        this.firstChild.style.display = 'block';
         if (j % 2 != 0) {
             cardOne = this.id;
-            cardOneColor = document.getElementById(cardOne).style.backgroundColor;
+            cardOneEmoji = document.getElementById(cardOne).firstChild.id;
             j++;
             pushMoves();
             busy = false;
         } else {
             cardTwo = this.id;
-            cardTwoColor = document.getElementById(cardTwo).style.backgroundColor;
+            cardTwoEmoji = document.getElementById(cardTwo).firstChild.id;
             if (cardOne != cardTwo) {
                 j++;
                 pushMoves();
             }
             setTimeout(function () {
-                if (cardOneColor == cardTwoColor && cardOne != cardTwo) {
-                    document.getElementById(cardOne).style.backgroundColor = "transparent";
-                    document.getElementById(cardTwo).style.backgroundColor = "transparent";
+                if (cardOneEmoji == cardTwoEmoji && cardOne != cardTwo) {
+                    document.getElementById(cardOne).style.backgroundImage = "transparent";
+                    document.getElementById(cardTwo).style.backgroundImage = "transparent";
                     score++;
                     checkWin();
                 } else {
                     document.getElementById(cardOne).classList.add("card-back");
                     document.getElementById(cardTwo).classList.add("card-back");
+                    document.getElementById(cardOne).firstChild.style.display = 'none';
+                    document.getElementById(cardTwo).firstChild.style.display = 'none';
                 }
                 busy = false;
             }, 1000);
