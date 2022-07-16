@@ -114,11 +114,11 @@ const winModal = document.getElementById("winModal");
 
 function checkWin() {
     if (selectedLevel == "easy" && score == 8) {
-        winModal.style.display = "block";
+        winModal.style.display = "flex";
     } else if (selectedLevel == "medium" && score == 10) {
-        winModal.style.display = "block";
+        winModal.style.display = "flex";
     } else if (selectedLevel == "hard" && score == 12) {
-        winModal.style.display = "block";
+        winModal.style.display = "flex";
     }
     pushScore();
 }
@@ -190,11 +190,38 @@ function resetGame() {
     pushMoves();
 };
 
+function getPlayerName() {
+    let playerName = document.getElementById('username').value;
+    return playerName;
+}
+
+function getScore() {
+    let defaultPoint = selectedLevel === 'easy' ? 8 : selectedLevel === 'medium' ? 10 : 12;
+    let timeLeft = document.getElementById('timer').innerText;
+    let moves = j - 1;
+    // will go the calculation here
+}
+
+function storeResult() {
+    let playerName = getPlayerName();
+    let score = getScore();
+    let result = {
+        playerName,
+        selectedLevel,
+        score
+    }
+    return result;
+}
+
 const closeButton = document.getElementById("close");
 closeButton.addEventListener("click", function () {
     winModal.style.display = "none";
 });
 
-let replayButton = document.getElementById("replay");
+let replayForm = document.getElementById("form");
 
-replayButton.addEventListener("click", resetGame);
+replayForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    storeResult();
+    resetGame();
+});
