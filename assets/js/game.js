@@ -1,22 +1,7 @@
-//  level selector
-let selectedLevel = "easy";
-let cards;
-let moves = 1;
-let score = 0;
-
+// Game containers
 const easyLevel = document.getElementById("easy-level-container");
 const mediumLevel = document.getElementById("medium-level-container");
 const hardLevel = document.getElementById("hard-level-container");
-
-let easy = easyLevel.id; // get the id of level containers
-let medium = mediumLevel.id;
-let hard = hardLevel.id;
-
-easy = easy.substring(0, easy.length - 16);
-medium = medium.substring(0, medium.length - 16);
-hard = hard.substring(0, hard.length - 16);
-
-let scoreArea = document.getElementById("score");
 
 // Button elements
 let levelSelectors = document.getElementsByClassName("level-selector");
@@ -29,21 +14,84 @@ let closeButtons = document.querySelectorAll("[data-button='close']")
 let replayBtn = document.getElementById("replayBtn");
 let replayForm = document.getElementById("form");
 
+let selectedLevel = "easy";
+let moves = 1;
+let score = 0;
 let countdown;
 let timeLeft = 0;
+let emojiArray;
+let cards;
+let cardOne;
+let cardTwo;
+let cardOneEmoji;
+let cardTwoEmoji;
+let busy = false;
+
+//add random colors to cards
+let basicEmojiArray = [
+    'assets/images/angry-emoji.png',
+    'assets/images/angry-emoji.png',
+    'assets/images/cool-emoji.png',
+    'assets/images/cool-emoji.png',
+    'assets/images/cowboy-emoji.png',
+    'assets/images/cowboy-emoji.png',
+    'assets/images/cursing-emoji.png',
+    'assets/images/cursing-emoji.png',
+    'assets/images/devil-emoji.png',
+    'assets/images/devil-emoji.png',
+    'assets/images/emotional-emoji.png',
+    'assets/images/emotional-emoji.png',
+    'assets/images/exploding-emoji.png',
+    'assets/images/exploding-emoji.png',
+    'assets/images/fire-emoji.png',
+    'assets/images/fire-emoji.png'
+];
 
 // Button click event listeners
 for (let button of levelSelectors) {
     button.addEventListener("click", (e) => {
+        let timerEl = document.getElementById("timer");
         selectedLevel = e.target.getAttribute("data-difficulty");
         selectLevel(selectedLevel);
-        startCountdown(selectedLevel);
+        if (selectedLevel === "easy") {
+            timerEl.innerText = "05:00";
+        } else if (selectedLevel === "medium") {
+            timerEl.innerText = "03:00";
+        } else {
+            timerEl.innerText = "01:00";
+        }
     })
 }
+
 resetButton.addEventListener("click", () => {
     resetGame();
-    startCountdown(selectedLevel);
+    if (countdown != null) {
+        stopCountdown();
+    }
 });
+
+for (let closeBtn of closeButtons) {
+    closeBtn.addEventListener("click", () => {
+        winModal.style.display = "none";
+        gameoverModal.style.display = "none";
+        resetGame();
+    })
+}
+
+replayBtn.addEventListener("click", () => {
+    storeResult();
+    gameoverModal.style.display = "none";
+    resetGame();
+})
+
+replayForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    storeResult();
+    winModal.style.display = "none";
+    resetGame();
+});
+
+sortColors();
 
 //timer function
 function startCountdown(difficulty) {
@@ -74,28 +122,6 @@ function stopCountdown() {
     let resetTimer = selectedLevel === "easy" ? "05:00" : selectedLevel === "medium" ? "03:00" : "01:00";
     document.getElementById("timer").innerText = resetTimer;
 }
-
-//add random colors to cards
-let basicEmojiArray = [
-    'assets/images/angry-emoji.png',
-    'assets/images/angry-emoji.png',
-    'assets/images/cool-emoji.png',
-    'assets/images/cool-emoji.png',
-    'assets/images/cowboy-emoji.png',
-    'assets/images/cowboy-emoji.png',
-    'assets/images/cursing-emoji.png',
-    'assets/images/cursing-emoji.png',
-    'assets/images/devil-emoji.png',
-    'assets/images/devil-emoji.png',
-    'assets/images/emotional-emoji.png',
-    'assets/images/emotional-emoji.png',
-    'assets/images/exploding-emoji.png',
-    'assets/images/exploding-emoji.png',
-    'assets/images/fire-emoji.png',
-    'assets/images/fire-emoji.png'
-];
-
-let emojiArray;
 
 function sortColors() {
     emojiArray = basicEmojiArray;
@@ -138,7 +164,7 @@ function resetCards() {
 }
 
 function selectLevel(level) {
-    selectedLevel = level; // Whichever button they click, get that id
+    selectedLevel = level;
 
     if (selectedLevel == "easy") {
         easyLevel.classList.remove("hide"); // Set the amount of cards depending on which level was chosen
@@ -155,14 +181,6 @@ function selectLevel(level) {
     }
     resetGame();
 }
-
-sortColors();
-
-let cardOne;
-let cardTwo;
-let cardOneEmoji;
-let cardTwoEmoji;
-let busy = false;
 
 function checkWin() {
     if (selectedLevel == "easy" && score == 8) {
@@ -181,7 +199,7 @@ function flipCard() {
         this.classList.remove("card-back"); // On click, flip the card
         this.firstChild.classList.remove('hide');
         if (moves % 2 != 0) {
-            if (selectedLevel === "easy" && moves === 1) {
+            if (moves === 1) {
                 startCountdown(selectedLevel);
             }
             cardOne = this.id;
@@ -216,6 +234,8 @@ function flipCard() {
 }
 
 function pushScore() {
+    let scoreArea = document.getElementById("score");
+
     if (selectedLevel == "easy") {
         scoreArea.innerText = `${score} / 8`;
     } else if (selectedLevel == "medium") {
@@ -305,26 +325,3 @@ function storeResult() {
     };
     return result;
 }
-
-for (let closeBtn of closeButtons) {
-    closeBtn.addEventListener("click", () => {
-        winModal.style.display = "none";
-        gameoverModal.style.display = "none";
-        resetGame();
-    })
-}
-
-replayBtn.addEventListener("click", () => {
-    storeResult();
-    gameoverModal.style.display = "none";
-    startCountdown(selectedLevel);
-    resetGame();
-})
-
-replayForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    storeResult();
-    winModal.style.display = "none";
-    startCountdown(selectedLevel);
-    resetGame();
-});
