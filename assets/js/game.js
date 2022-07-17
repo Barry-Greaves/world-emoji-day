@@ -1,8 +1,7 @@
 //  level selector
 let selectedLevel = "easy";
-const levelSelectors = document.getElementsByClassName("level-selector"); // Get all level buttons
 let cards;
-let j = 1;
+let moves = 1;
 let score = 0;
 
 const easyLevel = document.getElementById("easy-level-container");
@@ -17,6 +16,12 @@ easy = easy.substring(0, easy.length - 16);
 medium = medium.substring(0, medium.length - 16);
 hard = hard.substring(0, hard.length - 16);
 
+let scoreArea = document.getElementById("score");
+
+// Button elements
+let levelSelectors = document.getElementsByClassName("level-selector");
+let resetButton = document.getElementById("reset");
+
 // Modal elements
 let winModal = document.getElementById("winModal");
 let gameoverModal = document.getElementById("gameoverModal");
@@ -26,20 +31,27 @@ let replayForm = document.getElementById("form");
 
 let countdown;
 let timeLeft = 0;
-let mode;
 
-//timer function
+// Button click event listeners
 for (let button of levelSelectors) {
     button.addEventListener("click", (e) => {
-        mode = e.target.getAttribute("data-difficulty");
-        startCountdown(mode);
+        selectedLevel = e.target.getAttribute("data-difficulty");
+        selectLevel(selectedLevel);
+        startCountdown(selectedLevel);
     })
 }
+resetButton.addEventListener("click", () => {
+    resetGame();
+    startCountdown(selectedLevel);
+});
 
+//timer function
 function startCountdown(difficulty) {
-    mode = difficulty;
-    timeLeft = mode === "easy" ? 300000 : mode === "medium" ? 180000 : 60000;
-    stopCountdown();
+    selectedLevel = difficulty;
+    timeLeft = selectedLevel === "easy" ? 300000 : selectedLevel === "medium" ? 180000 : 60000;
+    if (countdown != null) {
+        stopCountdown();
+    }
     countdown = setInterval(() => {
         let minute = '0' + Math.floor(timeLeft / 60000);
         let seconds = Math.floor(timeLeft % 60000).toString();
@@ -59,11 +71,9 @@ function startCountdown(difficulty) {
 function stopCountdown() {
     clearInterval(countdown);
     countdown = null;
-    let resetTimer = mode === "easy" ? "05:00" : mode === "medium" ? "03:00" : "01:00";
+    let resetTimer = selectedLevel === "easy" ? "05:00" : selectedLevel === "medium" ? "03:00" : "01:00";
     document.getElementById("timer").innerText = resetTimer;
-    resetGame();
 }
-
 
 //add random colors to cards
 let basicEmojiArray = [
@@ -127,8 +137,8 @@ function resetCards() {
     }
 }
 
-function selectLevel() {
-    selectedLevel = this.id; // Whichever button they click, get that id
+function selectLevel(level) {
+    selectedLevel = level; // Whichever button they click, get that id
 
     if (selectedLevel == "easy") {
         easyLevel.classList.remove("hide"); // Set the amount of cards depending on which level was chosen
@@ -144,10 +154,6 @@ function selectLevel() {
         hardLevel.classList.remove("hide");
     }
     resetGame();
-}
-
-for (let i = 0; i < levelSelectors.length; i++) {
-    levelSelectors[i].addEventListener("click", selectLevel); // Add an onclick to select the level
 }
 
 sortColors();
@@ -174,17 +180,20 @@ function flipCard() {
         busy = true;
         this.classList.remove("card-back"); // On click, flip the card
         this.firstChild.classList.remove('hide');
-        if (j % 2 != 0) {
+        if (moves % 2 != 0) {
+            if (selectedLevel === "easy" && moves === 1) {
+                startCountdown(selectedLevel);
+            }
             cardOne = this.id;
             cardOneEmoji = document.getElementById(cardOne).firstChild.id;
-            j++;
+            moves++;
             pushMoves();
             busy = false;
         } else {
             cardTwo = this.id;
             cardTwoEmoji = document.getElementById(cardTwo).firstChild.id;
             if (cardOne != cardTwo) {
-                j++;
+                moves++;
                 pushMoves();
             }
             setTimeout(function () {
@@ -206,8 +215,6 @@ function flipCard() {
     pushScore();
 }
 
-let scoreArea = document.getElementById("score");
-
 function pushScore() {
     if (selectedLevel == "easy") {
         scoreArea.innerText = `${score} / 8`;
@@ -219,20 +226,12 @@ function pushScore() {
 }
 
 function pushMoves() {
-    document.getElementById("movescounter").innerHTML = `moves: ${j - 1}`;
+    document.getElementById("movescounter").innerHTML = `moves: ${moves - 1}`;
 }
 
-// let resetButton = document.getElementById("reset");
-let resetTimer = document.getElementById("reset");
-
-resetTimer.addEventListener("click", stopCountdown);
-
-// resetButton.addEventListener("click", resetGame);
-
 function resetGame() {
-    j = 1;
+    moves = 1;
     score = 0;
-    winModal.style.display = "none";
     resetCards();
     sortColors();
     pushScore();
@@ -250,14 +249,13 @@ function getScore() {
     let minuteToSec = timeLeft.substring(0, 2) * 60;
     let second = timeLeft.substring(3, 5);
     let timeLeftInSec = minuteToSec + second;
-    let moves = j - 1;
     let totalScore = defaultPoint;
 
-    if (moves <= 30) {
+    if (moves <= 31) {
         totalScore *= 5;
-    } else if (moves <= 50) {
+    } else if (moves <= 51) {
         totalScore *= 4;
-    } else if (moves <= 70) {
+    } else if (moves <= 71) {
         totalScore *= 3;
     } else {
         totalScore *= 2;
@@ -312,6 +310,7 @@ for (let closeBtn of closeButtons) {
     closeBtn.addEventListener("click", () => {
         winModal.style.display = "none";
         gameoverModal.style.display = "none";
+        resetGame();
     })
 }
 
@@ -319,10 +318,13 @@ replayBtn.addEventListener("click", () => {
     storeResult();
     gameoverModal.style.display = "none";
     startCountdown(selectedLevel);
+    resetGame();
 })
 
 replayForm.addEventListener("submit", (e) => {
     e.preventDefault();
     storeResult();
+    winModal.style.display = "none";
     startCountdown(selectedLevel);
+    resetGame();
 });
