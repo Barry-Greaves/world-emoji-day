@@ -28,7 +28,7 @@ let cardTwoEmoji;
 let busy = false;
 
 //add random colors to cards
-let basicEmojiArray = [
+let easyEmojiArray = [
     'assets/images/angry-emoji.png',
     'assets/images/angry-emoji.png',
     'assets/images/cool-emoji.png',
@@ -46,6 +46,22 @@ let basicEmojiArray = [
     'assets/images/fire-emoji.png',
     'assets/images/fire-emoji.png'
 ];
+
+let mediumEmojiArray = [
+    ...easyEmojiArray,
+    'assets/images/grinning-emoji.png',
+    'assets/images/grinning-emoji.png',
+    'assets/images/lol-emoji.png',
+    'assets/images/lol-emoji.png'
+];
+
+let hardEmojiArray = [
+    ...mediumEmojiArray,
+    'assets/images/loving-hearts.png',
+    'assets/images/loving-hearts.png',
+    'assets/images/party-emoji.png',
+    'assets/images/party-emoji.png'
+]
 
 // Button click event listeners
 for (let button of levelSelectors) {
@@ -121,19 +137,18 @@ function stopCountdown() {
 }
 
 function sortColors() {
-    emojiArray = basicEmojiArray;
     if (selectedLevel == "easy") {
-        emojiArray = basicEmojiArray;
+        emojiArray = easyEmojiArray;
         cards = document.getElementsByClassName("card-easy");
     } else if (selectedLevel == "medium") {
-        emojiArray.push('assets/images/grinning-emoji.png', 'assets/images/grinning-emoji.png', 'assets/images/lol-emoji.png', 'assets/images/lol-emoji.png');
+        emojiArray = mediumEmojiArray;
         cards = document.getElementsByClassName("card-medium");
     } else if (selectedLevel == "hard") {
-        emojiArray.push('assets/images/grinning-emoji.png', 'assets/images/grinning-emoji.png', 'assets/images/lol-emoji.png', 'assets/images/lol-emoji.png', 'assets/images/loving-hearts.png', 'assets/images/loving-hearts.png', 'assets/images/party-emoji.png', 'assets/images/party-emoji.png');
+        emojiArray = hardEmojiArray;
         cards = document.getElementsByClassName("card-hard");
     }
 
-    emojiArray.sort(() => 0.5 - Math.random()); // Randomise colors
+    emojiArray.sort(() => 0.5 - Math.random()); // Randomise emoji
 
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener("click", flipCard);
@@ -144,7 +159,7 @@ function sortColors() {
             let img = document.createElement('img');
             img.setAttribute('id', `${emojiArray[i].slice(14, -4)}`);
             img.className = 'emoji hide';
-            img.src = emojiArray[i]; // Add colors to cards in a random order
+            img.src = emojiArray[i];
             cards[i].appendChild(img);
         }
     }, 500);
@@ -182,10 +197,13 @@ function selectLevel(level) {
 function checkWin() {
     if (selectedLevel == "easy" && score == 8) {
         winModal.style.display = "flex";
+        stopCountdown();
     } else if (selectedLevel == "medium" && score == 10) {
         winModal.style.display = "flex";
+        stopCountdown();
     } else if (selectedLevel == "hard" && score == 12) {
         winModal.style.display = "flex";
+        stopCountdown();
     }
     pushScore();
 }
