@@ -1,16 +1,14 @@
-Milestone Project: Interactive Frontend Development 
+# EMOJI MATCH
 
-# MS2-Project - Pharaoh`s Match
+![GitHub contributors](https://img.shields.io/github/contributors/Barry-Greaves/world-emoji-day)
+![GitHub last commit](https://img.shields.io/github/last-commit/Barry-Greaves/world-emoji-day)
+![GitHub language count](https://img.shields.io/github/languages/count/Barry-Greaves/world-emoji-day)
+![GitHub top language](https://img.shields.io/github/languages/top/Barry-Greaves/world-emoji-day)
 
-![GitHub contributors](https://img.shields.io/github/contributors/manni8436/MS2-Project) (change repo name here)
-![GitHub last commit](https://img.shields.io/github/last-commit/manni8436/MS2-Project) (change repo name here)
-![GitHub language count](https://img.shields.io/github/languages/count/manni8436/MS2-Project) (change repo name here)
-![GitHub top language](https://img.shields.io/github/languages/top/manni8436/MS2-Project) (change repo name here) 
-
-[Here is a link to the final project](https://manni8436.github.io/MS2-Project) (change repo name here)
+[Here is a link to the final project](https://barry-greaves.github.io/world-emoji-day/)
 
 ## INITIAL DESIGN
-    
+
 ## FINAL DESIGN
 
 ![Final project image home page]() (add image after project has been completed)
@@ -24,6 +22,10 @@ Milestone Project: Interactive Frontend Development
     * [Color Scheme](#COLOR-SCHEME)
 
 * [Wireframes](#WIREFRAMES) 
+
+* [Features](#features)
+    * [Implemented Features](#implemented-features)
+    * [Future Implementations](#future-implementations)
 
 * [Technologies Used](#TECHNOLOGIES-USED) 
     * [Languages Used](#LANGUAGES-USED)
@@ -73,7 +75,38 @@ Milestone Project: Interactive Frontend Development
 
 ## FEATURES
 
-## FUTURE IMPLEMENTATIONS
+### IMPLEMENTED FEATURES
+
+The site features a fully responsive design and contains 2 pages(Home, Leaderboard). The header and footer are identical for all pages.
+
+- Header
+
+    - The fully responsive navigation bar includes links to the Home and Leaderboard page.
+    - The navigation menu collapses on small devices less than 992px width.
+
+- Footer
+
+    - The footer contains collaborators' names and links to their GitHub and LinkedIn Pages which open in a new tab.
+
+- Homepage
+
+    - The homepage includes the title, rule and game board to allow the user to see easily what the site is about.
+
+- Game
+
+    - The images behind the cards are emojis as the hackathon is for celebrating __World emoji day__.
+    - The user can select three different game levels to allow all age groups to play.
+    - The number of cards and time vary depending on the game level.
+    - The user can reset the game while playing.
+    - When the user matches all cards, a modal pops-up allow them to enter their name and updating the leaderboard, if their score is in the top 10.
+
+- Leaderboard
+
+    - This page displays the name and difficulty, for the top 10 players, with the highest scores.
+
+### FUTURE IMPLEMENTATIONS
+
+- The game would be more enjoyable if there were background music and/or sound effects that the user can control.
 
 ## KNOWN BUGS
 
@@ -116,7 +149,7 @@ Firefox Developer Tools was used for trouble shooting and trying new visual chan
 This site was deployed using GitHub Pages with the following the steps below:
 
 1. Login or Sign Up to [GitHub](www.github.com).
-2. Create a new repository named "MS2-Project". (change repo name here)
+2. Create a new repository named "world-emoji-day".
 3. Once created, click on "Settings" on the navigation bar under the repository title.
 4. Click on "Pages", on the left hand side below Secrets.
 5. Under "Source", choose which branch you wish to deploy, In most cases it will be "main".
@@ -129,7 +162,7 @@ This site was deployed using GitHub Pages with the following the steps below:
 If you need to make a copy of a repository:
 
 1. Login or Sign Up to [GitHub](www.github.com).
-2. On GitHub, go to [manni8436/MS2-Project](manni8436/MS2-Project). (change repo name here)
+2. On GitHub, go to [Barry-Greaves/world-emoji-day](https://github.com/Barry-Greaves/world-emoji-day).
 3. In the top right corner, click "Fork".
 
 ### HOW TO CLONE A REPOSITORY
@@ -137,7 +170,7 @@ If you need to make a copy of a repository:
 If you need to make a clone:    
 
 1. Login in to [GitHub](www.github.com).
-2. Fork the repository `manni8436/MS2-Project` using the steps above in [How To Fork a Repository](#HOW-TO-FORK-A-REPOSITORY). (change repo name here)
+2. Fork the repository `Barry-Greaves/world-emoji-day` using the steps above in [How To Fork a Repository](#HOW-TO-FORK-A-REPOSITORY).
 3. Above the file list, click "Code".
 4. Choose if you want to close using HTTPS, SSH or GitHub CLI, then click the copy button to the right.
 5. Open Git Bash.
