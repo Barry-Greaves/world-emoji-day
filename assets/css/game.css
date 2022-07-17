@@ -7,6 +7,10 @@ body {
     position: relative;
 }
 
+a, a:visited, a:hover, a:active {
+    color: inherit;
+  }
+  
 /* header and titles section */
 
 .navbar {
@@ -18,7 +22,7 @@ body {
     margin: auto;
 }
 
-.navlink a {
+.nav-link a {
     color: white;
 }
 
@@ -291,8 +295,7 @@ h1 {
 /* footer */
 
 .footer {
-    height: 75px;
-    background-color: #ff9a18;
+    background-color: #fee36e;
 }
 
 .socialmedia {
@@ -310,7 +313,7 @@ h1 {
 
 .socialmedia li,
 .socialmedia a {
-    color: #202020;
+    color: #373e98;
     display: inline-block;
 }
 
