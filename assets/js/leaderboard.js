@@ -21,7 +21,7 @@ async function leaderboard() {
 // Loop the array of data to create the table for the top 10 leaderbaord
 function buildTable(leaderboard) {
   var table = document.getElementById('myTable');
-
+  
   for (var i = 0; i < 10; i++) {
     var row = `<tr>
                     <td>${i+1}</td> 
@@ -36,3 +36,5 @@ function buildTable(leaderboard) {
 // Call the functions
 leaderboard();
 buildTable(leaderboard);
+
+
