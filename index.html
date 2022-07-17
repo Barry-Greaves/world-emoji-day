@@ -24,9 +24,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll">
+                <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" id="navbar-links">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="leaderboard.html">Leaderboard</a>
@@ -36,7 +36,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container" id="instructions-container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
                 <h2 class="game-header">Gang of Eight Presents</h2>
@@ -47,15 +47,16 @@
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
                 <div class="instructions">
                     <h4 class="instructions-header">how to play</h4>
-                    <p>
-                        Choose two cards and if the emojis underneath match, you will receive a point. There are a total
-                        of 8 available on easy level, 10 points on medium level and 12 points on hard level.
-                        <br>
-                        <br>
-                        Completing the board is the quickest time will earn extra points and if you are fast enough, a
-                        place on the illustrious leader board. The timer will begin once you flip your first card. Good
-                        Luck!
-                    </p>
+                    <p>Click any card to reveal it. Reveal a second card to try to find the matching emoji. If the
+                        chosen cards have the same emoji, they will remain revealed, if not then they will become hidden
+                        again. Remember what emoji was underneath!</p>
+                    <p>The game continues until all cards have been matched or the time is up. If you match all cards,
+                        you will receive points depending on the level, moves taken and time remaining.</p>
+                    <p>There are 8 emojis and 5 minutes on the easy level, 10 emojis and 3 minutes on medium and 12
+                        emojis and 1 minute on hard.</p>
+                    <p>If your memory serves you well then you can expect to see your name on the leaderboard!
+                        The timer will begin once you click on your first card.</p>
+                    <p>Good luck!</p>
                 </div>
             </div>
         </div>
@@ -148,7 +149,8 @@
                 <button type="button" class="btn easy level-selector" id="easy" data-difficulty="easy">easy</button>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-2 text-center">
-                <button type="button" class="btn medium level-selector" id="medium" data-difficulty="medium">medium</button>
+                <button type="button" class="btn medium level-selector" id="medium"
+                    data-difficulty="medium">medium</button>
             </div>
             <div class="col-sm-1 col-md-1 col-lg-1 text-center">
                 <button type="button" class="btn hard level-selector" id="hard" data-difficulty="hard">hard</button>
@@ -166,9 +168,9 @@
             </div>
         </div>
     </div>
-
+    <!-- Win Modal -->
     <div class="modal" id="winModal">
-        <div class="congrats">
+        <div class="modal-heading">
             <h3>congratulations!!!</h3>
         </div>
         <div class="speech">
@@ -185,20 +187,36 @@
                 </div>
             </div>
             <div class="d-grid gap-2 d-md-block mt-5">
-                <button type="button" class="modal-close-button" id="close">close</button>
+                <button class="modal-close-button" data-button="close">close</button>
                 <button type="submit" class="modal-replay-button" id="replay">replay</button>
             </div>
         </form>
     </div>
 
+    <!-- Game Over Modal -->
+    <div class="modal" id="gameoverModal">
+        <div class="modal-heading">
+            <h3>gameover!!!</h3>
+        </div>
+        <div class="speech">
+            <p>Time is up!</p>
+            <p>Would you like to play again?</p>
+        </div>
+        <img class="modal-octocat" src="assets/images/octocat.png" alt="Octocat">
+        <div class="d-grid gap-2 d-md-block mt-5">
+            <button class="modal-close-button" data-button="close">close</button>
+            <button class="modal-replay-button" id="replayBtn">replay</button>
+        </div>
+    </div>
+
     <!--Footer bar-->
     <footer class="footer">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <div class="col-sm-12 col-md-12 col-lg-12 text-center" id="footer-title">
                 <p>The Gang's Corner</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="footer-list">
             <ul class="col-sm-12 col-md-12 col-lg-12 text-center collaborator-list">
                 <li class="collaborator">
                     <a href="https://github.com/manni8436" target="_blank">

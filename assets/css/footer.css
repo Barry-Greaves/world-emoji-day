@@ -1,5 +1,38 @@
+
+.footer {
+    background-color: #fee36e;
+    position: absolute;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer-container {
+    width: 100%;
+    height: 75px;
+}
+
+.socialmedia {
+    font-size: larger;
+    word-spacing: 30px;
+    margin: 15px;
+    padding: 0;
+    text-align: center;
+}
+
+.fa {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.socialmedia li,
+.socialmedia a {
+    color: #373e98;
+    display: inline-block;
+}
+
 .collaborator-list {
     display:flex;
+    justify-content: center;
 }
 
 .collaborator {
@@ -9,9 +42,19 @@
 
 .github-icon, 
 .linkedin-icon {
-    width: 1.5rem;
+    width: 1.5rem;   
+    fill: #373e98;
 }
 
 .collaborator-name {
     margin: auto .5rem;
+    color: #373e98;
 }
+
+#footer-title {
+    color: #373e98;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+

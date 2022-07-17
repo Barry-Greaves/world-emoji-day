@@ -1,58 +1,31 @@
-//  level selector
-let selectedLevel = "easy";
-const levelSelectors = document.getElementsByClassName("level-selector"); // Get all level buttons
-let cards;
-let j = 1;
-let score = 0;
-
+// Game containers
 const easyLevel = document.getElementById("easy-level-container");
 const mediumLevel = document.getElementById("medium-level-container");
 const hardLevel = document.getElementById("hard-level-container");
 
-let easy = easyLevel.id; // get the id of level containers
-let medium = mediumLevel.id;
-let hard = hardLevel.id;
+// Button elements
+let levelSelectors = document.getElementsByClassName("level-selector");
+let resetButton = document.getElementById("reset");
 
-easy = easy.substring(0, easy.length - 16);
-medium = medium.substring(0, medium.length - 16);
-hard = hard.substring(0, hard.length - 16);
+// Modal elements
+let winModal = document.getElementById("winModal");
+let gameoverModal = document.getElementById("gameoverModal");
+let closeButtons = document.querySelectorAll("[data-button='close']")
+let replayBtn = document.getElementById("replayBtn");
+let replayForm = document.getElementById("form");
 
-
+let selectedLevel = "easy";
+let moves = 1;
+let score = 0;
 let countdown;
 let timeLeft = 0;
-let mode;
-
-//timer function
-for(let button of levelSelectors){
-  button.addEventListener("click",()=>{
-    mode = button.getAttribute("data-difficulty");
-    timeLeft = mode==="easy"? 300000:mode==="medium"? 180000:60000;
-    stopCountdown();
-  countdown = setInterval(() => {
-  let minute = '0' + Math.floor(timeLeft / 60000);
-  let seconds = Math.floor(timeLeft % 60000).toString();
-  let sec = seconds.length===5? seconds.slice(0,2):seconds.length===4? ("0" + seconds).slice(0,2):"00";
-
-  document.getElementById("timer").innerText = `${minute}:${sec}`;
-
-  if (timeLeft <= 0) {
-    stopCountdown();
-  } else {
-    timeLeft -= 10;
-  }
-}, 10);
-  })
-}
-
-
-function stopCountdown() {
-  clearInterval(countdown);
-  countdown = null;
-  let resetTimer = mode==="easy"? "05:00":mode==="medium"? "03:00":"01:00";
-  document.getElementById("timer").innerText = resetTimer;
-//   resetGame();
-}
-
+let emojiArray;
+let cards;
+let cardOne;
+let cardTwo;
+let cardOneEmoji;
+let cardTwoEmoji;
+let busy = false;
 
 //add random colors to cards
 let basicEmojiArray = [
@@ -74,7 +47,78 @@ let basicEmojiArray = [
     'assets/images/fire-emoji.png'
 ];
 
-let emojiArray;
+// Button click event listeners
+for (let button of levelSelectors) {
+    button.addEventListener("click", (e) => {
+        let timerEl = document.getElementById("timer");
+        selectedLevel = e.target.getAttribute("data-difficulty");
+        selectLevel(selectedLevel);
+        if (selectedLevel === "easy") {
+            timerEl.innerText = "05:00";
+        } else if (selectedLevel === "medium") {
+            timerEl.innerText = "03:00";
+        } else {
+            timerEl.innerText = "01:00";
+        }
+    })
+}
+
+resetButton.addEventListener("click", () => {
+    resetGame();
+});
+
+for (let closeBtn of closeButtons) {
+    closeBtn.addEventListener("click", () => {
+        winModal.style.display = "none";
+        gameoverModal.style.display = "none";
+        resetGame();
+    })
+}
+
+replayBtn.addEventListener("click", () => {
+    storeResult();
+    gameoverModal.style.display = "none";
+    resetGame();
+})
+
+replayForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    storeResult();
+    winModal.style.display = "none";
+    resetGame();
+});
+
+sortColors();
+
+//timer function
+function startCountdown(difficulty) {
+    selectedLevel = difficulty;
+    timeLeft = selectedLevel === "easy" ? 300000 : selectedLevel === "medium" ? 180000 : 60000;
+    if (countdown != null) {
+        stopCountdown();
+    }
+    countdown = setInterval(() => {
+        let minute = '0' + Math.floor(timeLeft / 60000);
+        let seconds = Math.floor(timeLeft % 60000).toString();
+        let sec = seconds.length === 5 ? seconds.slice(0, 2) : seconds.length === 4 ? ("0" + seconds).slice(0, 2) : "00";
+
+        document.getElementById("timer").innerText = `${minute}:${sec}`;
+
+        if (timeLeft <= 0) {
+            gameoverModal.style.display = "flex";
+            stopCountdown();
+        } else {
+            timeLeft -= 10;
+        }
+    }, 10);
+}
+
+function stopCountdown() {
+    clearInterval(countdown);
+    countdown = null;
+    let resetTimer = selectedLevel === "easy" ? "05:00" : selectedLevel === "medium" ? "03:00" : "01:00";
+    document.getElementById("timer").innerText = resetTimer;
+}
 
 function sortColors() {
     emojiArray = basicEmojiArray;
@@ -99,8 +143,7 @@ function sortColors() {
         for (let i = 0; i < emojiArray.length; i++) {
             let img = document.createElement('img');
             img.setAttribute('id', `${emojiArray[i].slice(14, -4)}`);
-            img.style.display = 'none';
-            img.style.width = '6rem';
+            img.className = 'emoji hide';
             img.src = emojiArray[i]; // Add colors to cards in a random order
             cards[i].appendChild(img);
         }
@@ -108,17 +151,17 @@ function sortColors() {
 }
 
 function resetCards() {
-    for (let k = 0; k < cards.length; k++) {
-        cards[k].classList.add("card-back");
-        cards[k].classList.remove("card-front");
-    }
-    for (let l = 0; l < cards.length; l++) {
-        cards[l].firstChild.remove();
+    for (let card of cards) {
+        card.classList.add("card-back");
+        card.classList.remove("card-front");
+        if (card.firstChild) {
+            card.firstChild.remove();
+        }
     }
 }
 
-function selectLevel() {
-    selectedLevel = this.id; // Whichever button they click, get that id
+function selectLevel(level) {
+    selectedLevel = level;
 
     if (selectedLevel == "easy") {
         easyLevel.classList.remove("hide"); // Set the amount of cards depending on which level was chosen
@@ -136,19 +179,6 @@ function selectLevel() {
     resetGame();
 }
 
-for (let i = 0; i < levelSelectors.length; i++) {
-    levelSelectors[i].addEventListener("click", selectLevel); // Add an onclick to select the level
-}
-
-sortColors();
-
-let cardOne;
-let cardTwo;
-let cardOneEmoji;
-let cardTwoEmoji;
-let busy = false;
-const winModal = document.getElementById("winModal");
-
 function checkWin() {
     if (selectedLevel == "easy" && score == 8) {
         winModal.style.display = "flex";
@@ -164,18 +194,21 @@ function flipCard() {
     if (!busy) {
         busy = true;
         this.classList.remove("card-back"); // On click, flip the card
-        this.firstChild.style.display = 'block';
-        if (j % 2 != 0) {
+        this.firstChild.classList.remove('hide');
+        if (moves % 2 != 0) {
+            if (moves === 1) {
+                startCountdown(selectedLevel);
+            }
             cardOne = this.id;
             cardOneEmoji = document.getElementById(cardOne).firstChild.id;
-            j++;
+            moves++;
             pushMoves();
             busy = false;
         } else {
             cardTwo = this.id;
             cardTwoEmoji = document.getElementById(cardTwo).firstChild.id;
             if (cardOne != cardTwo) {
-                j++;
+                moves++;
                 pushMoves();
             }
             setTimeout(function () {
@@ -187,8 +220,8 @@ function flipCard() {
                 } else {
                     document.getElementById(cardOne).classList.add("card-back");
                     document.getElementById(cardTwo).classList.add("card-back");
-                    document.getElementById(cardOne).firstChild.style.display = 'none';
-                    document.getElementById(cardTwo).firstChild.style.display = 'none';
+                    document.getElementById(cardOne).firstChild.classList.add('hide');
+                    document.getElementById(cardTwo).firstChild.classList.add('hide');
                 }
                 busy = false;
             }, 1000);
@@ -197,9 +230,9 @@ function flipCard() {
     pushScore();
 }
 
-let scoreArea = document.getElementById("score");
-
 function pushScore() {
+    let scoreArea = document.getElementById("score");
+
     if (selectedLevel == "easy") {
         scoreArea.innerText = `${score} / 8`;
     } else if (selectedLevel == "medium") {
@@ -210,20 +243,15 @@ function pushScore() {
 }
 
 function pushMoves() {
-    document.getElementById("movescounter").innerHTML = `moves: ${j - 1}`;
+    document.getElementById("movescounter").innerHTML = `moves: ${moves - 1}`;
 }
 
-// let resetButton = document.getElementById("reset");
-let resetTimer = document.getElementById("reset");
-
-resetTimer.addEventListener("click", stopCountdown);
-
-// resetButton.addEventListener("click", resetGame);
-
 function resetGame() {
-    j = 1;
+    moves = 1;
     score = 0;
-    winModal.style.display = "none";
+    if (countdown != null) {
+        stopCountdown();
+    }
     resetCards();
     sortColors();
     pushScore();
@@ -241,14 +269,13 @@ function getScore() {
     let minuteToSec = timeLeft.substring(0, 2) * 60;
     let second = timeLeft.substring(3, 5);
     let timeLeftInSec = minuteToSec + second;
-    let moves = j - 1;
     let totalScore = defaultPoint;
 
-    if (moves <= 30) {
+    if (moves <= 31) {
         totalScore *= 5;
-    } else if (moves <= 50) {
+    } else if (moves <= 51) {
         totalScore *= 4;
-    } else if (moves <= 70) {
+    } else if (moves <= 71) {
         totalScore *= 3;
     } else {
         totalScore *= 2;
@@ -292,23 +319,9 @@ function storeResult() {
     let playerName = getPlayerName();
     let score = getScore();
     let result = {
-        playerName,
-        selectedLevel,
-        score
+        "name": playerName,
+        "difficulty": selectedLevel,
+        "score": score
     };
     return result;
 }
-
-const closeButton = document.getElementById("close");
-closeButton.addEventListener("click", function () {
-    winModal.style.display = "none";
-});
-
-let replayForm = document.getElementById("form");
-
-replayForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    storeResult();
-    stopCountdown();
-    // resetGame();
-});

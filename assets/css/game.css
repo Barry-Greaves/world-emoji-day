@@ -5,6 +5,14 @@ body {
     background-color: #373e98;
     font-family: 'roc-grotesk-wide', sans-serif;
     position: relative;
+    padding-bottom: 75px;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
 }
 
 /* header and titles section */
@@ -14,13 +22,19 @@ body {
 }
 
 .navbar-brand {
-    color: #ffffff;
+    color: #ffffff !important;
     margin: auto;
 }
 
-.navlink a {
-    color: white;
+.nav-item a {
+    color: #ffffff !important;
 }
+
+#navbar-links {
+    margin-left: auto !important; 
+    margin-right: 0 !important;
+}
+
 
 /* modal */
 .modal {
@@ -41,7 +55,7 @@ body {
     border: 5px #ff9a18 solid;
 }
 
-.congrats {
+.modal-heading {
     color: #ff0000;
     margin: 15px;
     font-weight: bolder;
@@ -110,7 +124,7 @@ body {
 h2 {
     font-family: cortado;
     color: white;
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 
 h1 {
@@ -118,7 +132,7 @@ h1 {
     text-transform: uppercase;
     font-weight: 900;
     color: white;
-    font-size: 6rem;
+    font-size: 4rem;
 
 }
 
@@ -140,6 +154,10 @@ h1 {
     background-image: url('../images/question-mark-card.png');
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.emoji {
+    width: 100%;
 }
 
 /* levels section */
@@ -168,6 +186,8 @@ h1 {
 }
 
 /* instructions section */
+
+
 .instructions-header {
     color: #ffffff;
     margin: 5px;
@@ -185,7 +205,12 @@ h1 {
 }
 
 .instructions h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+.instructions p {
+    margin-bottom: 5px;
+   
 }
 
 /* buttons section */
@@ -284,31 +309,7 @@ h1 {
     border: 3px #ff9a18 solid;
 }
 
-/* footer */
 
-.footer {
-    height: 75px;
-    background-color: #ff9a18;
-}
-
-.socialmedia {
-    font-size: larger;
-    word-spacing: 30px;
-    margin: 15px;
-    padding: 0;
-    text-align: center;
-}
-
-.fa {
-    font-size: 25px;
-    margin-top: 15px;
-}
-
-.socialmedia li,
-.socialmedia a {
-    color: #202020;
-    display: inline-block;
-}
 
 /* other */
 
