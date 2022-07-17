@@ -21,13 +21,15 @@ a:active {
 }
 
 .navbar-brand {
-    color: #ffffff;
+    color: #ffffff !important;
     margin: auto;
 }
 
-.nav-link a {
-    color: white;
+.nav-item a {
+    color: #ffffff !important;
+
 }
+
 
 /* modal */
 .modal {
@@ -117,7 +119,7 @@ a:active {
 h2 {
     font-family: cortado;
     color: white;
-    font-size: 3rem;
+    font-size: 4vw;
 }
 
 h1 {
@@ -125,7 +127,7 @@ h1 {
     text-transform: uppercase;
     font-weight: 900;
     color: white;
-    font-size: 6rem;
+    font-size: 8.5vw;
 
 }
 
