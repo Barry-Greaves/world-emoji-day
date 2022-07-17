@@ -65,9 +65,6 @@ for (let button of levelSelectors) {
 
 resetButton.addEventListener("click", () => {
     resetGame();
-    if (countdown != null) {
-        stopCountdown();
-    }
 });
 
 for (let closeBtn of closeButtons) {
@@ -252,6 +249,9 @@ function pushMoves() {
 function resetGame() {
     moves = 1;
     score = 0;
+    if (countdown != null) {
+        stopCountdown();
+    }
     resetCards();
     sortColors();
     pushScore();
@@ -319,9 +319,9 @@ function storeResult() {
     let playerName = getPlayerName();
     let score = getScore();
     let result = {
-        playerName,
-        selectedLevel,
-        score
+        "name": playerName,
+        "difficulty": selectedLevel,
+        "score": score
     };
     return result;
 }
