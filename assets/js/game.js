@@ -23,25 +23,25 @@ let timeLeft = 0;
 let mode;
 
 //timer function
-for(let button of levelSelectors){
-  button.addEventListener("click",()=>{
-    mode = button.getAttribute("data-difficulty");
-    timeLeft = mode==="easy"? 300000:mode==="medium"? 180000:60000;
-    stopCountdown();
-  countdown = setInterval(() => {
-  let minute = '0' + Math.floor(timeLeft / 60000);
-  let seconds = Math.floor(timeLeft % 60000).toString();
-  let sec = seconds.length===5? seconds.slice(0,2):seconds.length===4? ("0" + seconds).slice(0,2):"00";
+for (let button of levelSelectors) {
+    button.addEventListener("click", () => {
+        mode = button.getAttribute("data-difficulty");
+        timeLeft = mode === "easy" ? 300000 : mode === "medium" ? 180000 : 60000;
+        stopCountdown();
+        countdown = setInterval(() => {
+            let minute = '0' + Math.floor(timeLeft / 60000);
+            let seconds = Math.floor(timeLeft % 60000).toString();
+            let sec = seconds.length === 5 ? seconds.slice(0, 2) : seconds.length === 4 ? ("0" + seconds).slice(0, 2) : "00";
 
-  document.getElementById("timer").innerText = `${minute}:${sec}`;
+            document.getElementById("timer").innerText = `${minute}:${sec}`;
 
-  if (timeLeft <= 0) {
-    stopCountdown();
-  } else {
-    timeLeft -= 10;
-  }
-}, 10);
-  })
+            if (timeLeft <= 0) {
+                stopCountdown();
+            } else {
+                timeLeft -= 10;
+            }
+        }, 10);
+    })
 }
 
 
@@ -99,8 +99,7 @@ function sortColors() {
         for (let i = 0; i < emojiArray.length; i++) {
             let img = document.createElement('img');
             img.setAttribute('id', `${emojiArray[i].slice(14, -4)}`);
-            img.style.display = 'none';
-            img.style.width = '6rem';
+            img.className = 'emoji hide';
             img.src = emojiArray[i]; // Add colors to cards in a random order
             cards[i].appendChild(img);
         }
@@ -164,7 +163,7 @@ function flipCard() {
     if (!busy) {
         busy = true;
         this.classList.remove("card-back"); // On click, flip the card
-        this.firstChild.style.display = 'block';
+        this.firstChild.classList.remove('hide');
         if (j % 2 != 0) {
             cardOne = this.id;
             cardOneEmoji = document.getElementById(cardOne).firstChild.id;
@@ -187,8 +186,8 @@ function flipCard() {
                 } else {
                     document.getElementById(cardOne).classList.add("card-back");
                     document.getElementById(cardTwo).classList.add("card-back");
-                    document.getElementById(cardOne).firstChild.style.display = 'none';
-                    document.getElementById(cardTwo).firstChild.style.display = 'none';
+                    document.getElementById(cardOne).firstChild.classList.add('hide');
+                    document.getElementById(cardTwo).firstChild.classList.add('hide');
                 }
                 busy = false;
             }, 1000);
@@ -310,5 +309,5 @@ replayForm.addEventListener("submit", (e) => {
     e.preventDefault();
     storeResult();
     stopCountdown();
-    // resetGame();
+    resetGame();
 });
