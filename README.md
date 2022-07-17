@@ -8,10 +8,11 @@
 [Here is a link to the final project](https://barry-greaves.github.io/world-emoji-day/)
 
 ## INITIAL DESIGN
+* The initial idea for this project was to create a fun, interactive card matching game with a Emoji theme that can be enjoyed by anyone. My target audience is anyone who is interested in games and also Emojis. The target demographic is incredibly mixed and covers people of all ages and genders.
 
 ## FINAL DESIGN
 
-![Final project image home page]() (add image after project has been completed)
+![Final project image home page](../world-emoji-day/assets/images/responsive-image.png)
 
 ## CONTENTS
 
@@ -71,7 +72,12 @@
 
 ## WIREFRAMES
 
-[Here are my wireframes for desktop, mobile and tablet for this project]() (add wireframes here)
+* Desktop
+![Game Desktop Wireframes](../world-emoji-day/assets/images/game-desktop-wireframes.png)
+* Mobile
+![Game Mobile Wireframes](../world-emoji-day/assets/images/game-mobile-wireframes.png)
+* Leader Board
+![Game Desktop Wireframes](../world-emoji-day/assets/images/leaderboard-desktop-wireframes.png)
 
 ## FEATURES
 
@@ -108,10 +114,6 @@ The site features a fully responsive design and contains 2 pages(Home, Leaderboa
 
 - The game would be more enjoyable if there were background music and/or sound effects that the user can control.
 
-## KNOWN BUGS
-
-## SOLVED BUGS
-
 ## TECHNOLOGIES USED
 
 ### LANGUAGES USED
@@ -130,14 +132,20 @@ alt="Bootstrap logo" height="50px" width="50px" />
 #### Google Fonts:
 [Google Fonts](https://fonts.google.com/) was used for all the text content on the site pages.
 
-#### GitPod:
-GitPod was used to write up the code for my project and using the GitPod terminal to commit everything to GitHub.
-    
-#### GitHub:
-GitHub is being used to store all the code for this project after being pushed from GitPod.
+#### Git
+[Git](https://git-scm.com/) was used for version control by using the Gitpod terminal to add and commit to Git and push to Github.
 
-#### Balsamiq:
-Balsamiq was used in the initial design process to make wireframes.
+#### GitPod
+[GitPod](https://gitpod.io) was used as an IDE whilst coding this site.
+
+#### GitHub
+[GitHub](https://github.com/) is being used to store all the code for this project after being pushed from GitPod.
+
+#### Am i Responsive
+[Am i Responsive](http://ami.responsivedesign.is/) was used to create the image in my [Final Design](#final-design) section.
+
+#### Photoshop:
+Photoshop was used in the initial design process to make wireframes.
 
 #### Firefox Developer Tools:
 Firefox Developer Tools was used for trouble shooting and trying new visual changes without it affect the current code already created.
