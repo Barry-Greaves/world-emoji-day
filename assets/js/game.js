@@ -197,10 +197,13 @@ function selectLevel(level) {
 function checkWin() {
     if (selectedLevel == "easy" && score == 8) {
         winModal.style.display = "flex";
+        stopCountdown();
     } else if (selectedLevel == "medium" && score == 10) {
         winModal.style.display = "flex";
+        stopCountdown();
     } else if (selectedLevel == "hard" && score == 12) {
         winModal.style.display = "flex";
+        stopCountdown();
     }
     pushScore();
 }
