@@ -5,6 +5,7 @@ body {
     background-color: #373e98;
     font-family: 'roc-grotesk-wide', sans-serif;
     position: relative;
+    padding-bottom: 75px;
 }
 
 a, a:visited, a:hover, a:active {
@@ -24,7 +25,11 @@ a, a:visited, a:hover, a:active {
 
 .nav-item a {
     color: #ffffff !important;
+}
 
+#navbar-links {
+    margin-left: auto !important; 
+    margin-right: 0 !important;
 }
 
 
@@ -116,7 +121,7 @@ a, a:visited, a:hover, a:active {
 h2 {
     font-family: cortado;
     color: white;
-    font-size: 4vw;
+    font-size: 1.5rem;
 }
 
 h1 {
@@ -124,7 +129,7 @@ h1 {
     text-transform: uppercase;
     font-weight: 900;
     color: white;
-    font-size: 8.5vw;
+    font-size: 4rem;
 
 }
 
@@ -178,6 +183,8 @@ h1 {
 }
 
 /* instructions section */
+
+
 .instructions-header {
     color: #ffffff;
     margin: 5px;
@@ -195,7 +202,12 @@ h1 {
 }
 
 .instructions h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+.instructions p {
+    margin-bottom: 5px;
+   
 }
 
 /* buttons section */
@@ -294,30 +306,7 @@ h1 {
     border: 3px #ff9a18 solid;
 }
 
-/* footer */
 
-.footer {
-    background-color: #fee36e;
-}
-
-.socialmedia {
-    font-size: larger;
-    word-spacing: 30px;
-    margin: 15px;
-    padding: 0;
-    text-align: center;
-}
-
-.fa {
-    font-size: 25px;
-    margin-top: 15px;
-}
-
-.socialmedia li,
-.socialmedia a {
-    color: #373e98;
-    display: inline-block;
-}
 
 /* other */
 
