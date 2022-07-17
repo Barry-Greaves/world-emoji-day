@@ -72,9 +72,9 @@
 
 ## WIREFRAMES
 
-![Game Desktop Wireframes](../world-emoji-day/assets/images/game-desktop-wireframes.png)
-![Game Mobile Wireframes](../world-emoji-day/assets/images/game-mobile-wireframes.png)
-![Game Desktop Wireframes](../world-emoji-day/assets/images/leaderboard-desktop-wireframes.png)
+![Game Desktop Wireframes](assets/images/game-desktop-wireframes.png)
+![Game Mobile Wireframes](assets/images/game-mobile-wireframes.png)
+![Game Desktop Wireframes](assets/images/leaderboard-desktop-wireframes.png)
 
 ## FEATURES
 
