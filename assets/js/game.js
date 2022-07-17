@@ -17,6 +17,12 @@ easy = easy.substring(0, easy.length - 16);
 medium = medium.substring(0, medium.length - 16);
 hard = hard.substring(0, hard.length - 16);
 
+// Modal elements
+let winModal = document.getElementById("winModal");
+let gameoverModal = document.getElementById("gameoverModal");
+let closeButtons = document.querySelectorAll("[data-button='close']")
+let replayBtn = document.getElementById("replayBtn");
+let replayForm = document.getElementById("form");
 
 let countdown;
 let timeLeft = 0;
@@ -24,33 +30,38 @@ let mode;
 
 //timer function
 for (let button of levelSelectors) {
-    button.addEventListener("click", () => {
-        mode = button.getAttribute("data-difficulty");
-        timeLeft = mode === "easy" ? 300000 : mode === "medium" ? 180000 : 60000;
-        stopCountdown();
-        countdown = setInterval(() => {
-            let minute = '0' + Math.floor(timeLeft / 60000);
-            let seconds = Math.floor(timeLeft % 60000).toString();
-            let sec = seconds.length === 5 ? seconds.slice(0, 2) : seconds.length === 4 ? ("0" + seconds).slice(0, 2) : "00";
-
-            document.getElementById("timer").innerText = `${minute}:${sec}`;
-
-            if (timeLeft <= 0) {
-                stopCountdown();
-            } else {
-                timeLeft -= 10;
-            }
-        }, 10);
+    button.addEventListener("click", (e) => {
+        mode = e.target.getAttribute("data-difficulty");
+        startCountdown(mode);
     })
 }
 
+function startCountdown(difficulty) {
+    mode = difficulty;
+    timeLeft = mode === "easy" ? 300000 : mode === "medium" ? 180000 : 60000;
+    stopCountdown();
+    countdown = setInterval(() => {
+        let minute = '0' + Math.floor(timeLeft / 60000);
+        let seconds = Math.floor(timeLeft % 60000).toString();
+        let sec = seconds.length === 5 ? seconds.slice(0, 2) : seconds.length === 4 ? ("0" + seconds).slice(0, 2) : "00";
+
+        document.getElementById("timer").innerText = `${minute}:${sec}`;
+
+        if (timeLeft <= 0) {
+            gameoverModal.style.display = "flex";
+            stopCountdown();
+        } else {
+            timeLeft -= 10;
+        }
+    }, 10);
+}
 
 function stopCountdown() {
-  clearInterval(countdown);
-  countdown = null;
-  let resetTimer = mode==="easy"? "05:00":mode==="medium"? "03:00":"01:00";
-  document.getElementById("timer").innerText = resetTimer;
-  resetGame();
+    clearInterval(countdown);
+    countdown = null;
+    let resetTimer = mode === "easy" ? "05:00" : mode === "medium" ? "03:00" : "01:00";
+    document.getElementById("timer").innerText = resetTimer;
+    resetGame();
 }
 
 
@@ -107,12 +118,12 @@ function sortColors() {
 }
 
 function resetCards() {
-    for (let k = 0; k < cards.length; k++) {
-        cards[k].classList.add("card-back");
-        cards[k].classList.remove("card-front");
-    }
-    for (let l = 0; l < cards.length; l++) {
-        cards[l].firstChild.remove();
+    for (let card of cards) {
+        card.classList.add("card-back");
+        card.classList.remove("card-front");
+        if (card.firstChild) {
+            card.firstChild.remove();
+        }
     }
 }
 
@@ -146,7 +157,6 @@ let cardTwo;
 let cardOneEmoji;
 let cardTwoEmoji;
 let busy = false;
-const winModal = document.getElementById("winModal");
 
 function checkWin() {
     if (selectedLevel == "easy" && score == 8) {
@@ -298,16 +308,21 @@ function storeResult() {
     return result;
 }
 
-const closeButton = document.getElementById("close");
-closeButton.addEventListener("click", function () {
-    winModal.style.display = "none";
-});
+for (let closeBtn of closeButtons) {
+    closeBtn.addEventListener("click", () => {
+        winModal.style.display = "none";
+        gameoverModal.style.display = "none";
+    })
+}
 
-let replayForm = document.getElementById("form");
+replayBtn.addEventListener("click", () => {
+    storeResult();
+    gameoverModal.style.display = "none";
+    startCountdown(selectedLevel);
+})
 
 replayForm.addEventListener("submit", (e) => {
     e.preventDefault();
     storeResult();
-    stopCountdown();
-    resetGame();
+    startCountdown(selectedLevel);
 });
