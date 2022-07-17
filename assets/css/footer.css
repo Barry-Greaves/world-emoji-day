@@ -1,5 +1,6 @@
 .collaborator-list {
     display:flex;
+    justify-content: center;
 }
 
 .collaborator {
@@ -9,9 +10,19 @@
 
 .github-icon, 
 .linkedin-icon {
-    width: 1.5rem;
+    width: 1.5rem;   
+    fill: #373e98;
 }
 
 .collaborator-name {
     margin: auto .5rem;
+    color: #373e98;
 }
+
+#footer-title {
+    color: #373e98;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
