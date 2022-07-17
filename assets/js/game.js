@@ -83,7 +83,7 @@ replayBtn.addEventListener("click", () => {
 
 replayForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    storeResult();
+    saveScoregit();
     winModal.style.display = "none";
     resetGame();
 });
@@ -324,4 +324,17 @@ function storeResult() {
         "score": score
     };
     return result;
+}
+
+function saveScore() {
+    let playerName = getPlayerName();
+    let difficulty = selectedLevel;
+    let score = getScore();
+
+
+    const url = `save_score.php?playerName=${playerName}&difficulty=${difficulty}&score=${score}`;
+    setTimeout(function() {
+      window.location.href = url; 
+  },500);
+ 
 }
