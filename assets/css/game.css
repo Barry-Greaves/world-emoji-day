@@ -7,10 +7,13 @@ body {
     position: relative;
 }
 
-a, a:visited, a:hover, a:active {
+a,
+a:visited,
+a:hover,
+a:active {
     color: inherit;
-  }
-  
+}
+
 /* header and titles section */
 
 .navbar {
@@ -47,7 +50,7 @@ a, a:visited, a:hover, a:active {
     border: 5px #ff9a18 solid;
 }
 
-.congrats {
+.modal-heading {
     color: #ff0000;
     margin: 15px;
     font-weight: bolder;
