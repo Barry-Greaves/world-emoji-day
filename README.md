@@ -12,11 +12,11 @@
 
 ## FINAL DESIGN
 
-![Final project image home page](../world-emoji-day/assets/images/responsive-image.png)
+![Final project image home page](assets/images/responsive-image.png)
 
 ## CONTENTS
 
-* [User Experience](#USER-EXPERIENCE-(UX))  
+* [User Experience](#USER-EXPERIENCE-(UX))
     * [User Stories](#USER-STORIES)    
 
 * [Design](#DESIGN)   
