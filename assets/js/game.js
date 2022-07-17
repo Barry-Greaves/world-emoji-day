@@ -46,11 +46,11 @@ for (let button of levelSelectors) {
 
 
 function stopCountdown() {
-    clearInterval(countdown);
-    countdown = null;
-    let resetTimer = mode === "easy" ? "05:00" : mode === "medium" ? "03:00" : "01:00";
-    document.getElementById("timer").innerText = resetTimer;
-    //   resetGame();
+  clearInterval(countdown);
+  countdown = null;
+  let resetTimer = mode==="easy"? "05:00":mode==="medium"? "03:00":"01:00";
+  document.getElementById("timer").innerText = resetTimer;
+  resetGame();
 }
 
 
