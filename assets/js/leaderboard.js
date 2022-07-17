@@ -18,12 +18,13 @@ async function leaderboard() {
 }
 
 
-// Loop the array of data to create the table for the leaderbaord
+// Loop the array of data to create the table for the top 10 leaderbaord
 function buildTable(leaderboard) {
   var table = document.getElementById('myTable');
 
-  for (var i = 0; i < leaderboard.length; i++) {
+  for (var i = 0; i < 10; i++) {
     var row = `<tr>
+                    <td>${i+1}</td> 
                     <td>${leaderboard[i].name}</td> 
                     <td>${leaderboard[i].difficulty}</td>
                     <td>${leaderboard[i].score}</td> 

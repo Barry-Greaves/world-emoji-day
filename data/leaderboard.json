@@ -5,9 +5,9 @@
     "score": 56
     },
     {
-    "name": "Peter",
+    "name": "Hrafn",
     "difficulty": "hard",
-    "score": 50
+    "score": 250
     },
     {
     "name": "Kate",
@@ -22,19 +22,49 @@
     {
     "name": "Liam",
     "difficulty": "hard",
-    "score": 56
+    "score": 156
     }
     ,
     {
-    "name": "Barry",
+    "name": "Barry-G",
     "difficulty": "medium",
-    "score": 256
+    "score": 260
     }
     ,
     {
     "name": "Sejung",
     "difficulty": "medium",
-    "score": 126
+    "score": 196
+    }
+    ,
+    {
+    "name": "Manni",
+    "difficulty": "medium",
+    "score": 206
+    }
+    ,
+    {
+    "name": "Matej",
+    "difficulty": "medium",
+    "score": 253
+    }
+    ,
+    {
+    "name": "Farrukh",
+    "difficulty": "medium",
+    "score": 226
+    }
+    ,
+    {
+    "name": "Jake",
+    "difficulty": "medium",
+    "score": 226
+    }
+    ,
+    {
+    "name": "Amy",
+    "difficulty": "medium",
+    "score": 226
     }
     
 ]
