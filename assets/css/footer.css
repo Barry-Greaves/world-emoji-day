@@ -1,3 +1,7 @@
+.footer {
+    bottom: 0;
+}
+
 .collaborator-list {
     display:flex;
     justify-content: center;
