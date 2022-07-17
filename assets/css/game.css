@@ -142,6 +142,10 @@ h1 {
     background-size: contain;
 }
 
+.emoji {
+    width: 100%;
+}
+
 /* levels section */
 .easy-level,
 .medium-level,
