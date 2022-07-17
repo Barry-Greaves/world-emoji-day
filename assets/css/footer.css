@@ -1,5 +1,33 @@
+
 .footer {
-    bottom: 0;
+    background-color: #fee36e;
+    position: absolute;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer-container {
+    width: 100%;
+    height: 75px;
+}
+
+.socialmedia {
+    font-size: larger;
+    word-spacing: 30px;
+    margin: 15px;
+    padding: 0;
+    text-align: center;
+}
+
+.fa {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.socialmedia li,
+.socialmedia a {
+    color: #373e98;
+    display: inline-block;
 }
 
 .collaborator-list {
