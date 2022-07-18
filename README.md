@@ -8,7 +8,7 @@
 [Here is a link to the final project](https://barry-greaves.github.io/world-emoji-day/)
 
 ## INITIAL DESIGN
-* The initial idea for this project was to create a fun, interactive card matching game with a Emoji theme that can be enjoyed by anyone. My target audience is anyone who is interested in games and also Emojis. The target demographic is incredibly mixed and covers people of all ages and genders.
+* The initial idea for this project was to create a fun, interactive card matching game with an Emoji theme that can be enjoyed by anyone. Our target audience is anyone who is interested in games and also likes Emojis. The target demographic is incredibly mixed and covers people of all ages and genders.
 
 ## FINAL DESIGN
 
@@ -51,8 +51,8 @@
 
 #### CLIENT GOALS
 
-- To provide an intuitive website that a user can understand the site’s main purpose, navigate easily and wants to use for a long period.
-- To provide a game which can improve attention to detail and concentration skills and memory.
+- To provide an intuitive website that a user can understand, can navigate easily and want to use for a long period.
+- To provide a game which can improve attention to detail, concentration skills and memory.
 
 #### FIRST TIME VISITORS
 
@@ -80,7 +80,7 @@
 
 ### IMPLEMENTED FEATURES
 
-The site features a fully responsive design and contains 2 pages(Home, Leaderboard). The header and footer are identical for all pages.
+The site features a fully responsive design and contains 2 pages(Home & Leaderboard). The header and footer are identical for all pages.
 
 - Header
 
@@ -89,7 +89,7 @@ The site features a fully responsive design and contains 2 pages(Home, Leaderboa
 
 - Footer
 
-    - The footer contains collaborators' names and links to their GitHub and LinkedIn Pages which open in a new tab.
+    - The footer contains collaborator's names and links to their GitHub and LinkedIn Pages which open in a new tab.
 
 - Homepage
 
@@ -101,7 +101,7 @@ The site features a fully responsive design and contains 2 pages(Home, Leaderboa
     - The user can select three different game levels to allow all age groups to play.
     - The number of cards and time vary depending on the game level.
     - The user can reset the game while playing.
-    - When the user matches all cards, a modal pops-up allow them to enter their name and updating the leaderboard, if their score is in the top 10.
+    - When the user matches all cards, a modal pops-up allowing them to enter their name and update the leaderboard, if their score is in the top 10.
 
 - Leaderboard
 
@@ -124,7 +124,7 @@ The site features a fully responsive design and contains 2 pages(Home, Leaderboa
 ### PROGRAMS USED
 
 #### Font Awesome:
-[Font Awesome](https://fontawesome.com/) was using for a few icons used in the footer aspect of the site pages.
+[Font Awesome](https://fontawesome.com/) was used for a few icons in the footer aspect of the site pages.
 
 #### Google Fonts:
 [Google Fonts](https://fonts.google.com/) was used for all the text content on the site pages.
@@ -228,10 +228,10 @@ If you need to make a local clone:
 
 | Feature        | Expected           | Testing  | Result | Pass/Fail |
 | ------------- |-------------| -----|  ---------- | :-----:|
-| Easy Button | Button changes colour when user hovers the mouse over it. Pressing the button results in changing the difficulty of the game to easy | Hover mouse over the button & pressing the button | Button change colour when hovered over and modifies the game difficulty when clicked | Pass |
-| Medium Button | Button changes colour when user hovers the mouse over it. Pressing the button results in changing the difficulty of the game to medium | Hover mouse over the button & pressing the button | Button change colour when hovered over and modifies the game difficulty when clicked | Pass |
-| Hard Button | Button changes colour when user hovers the mouse over it. Pressing the button results in changing the difficulty of the game to hard | Hover mouse over the button & pressing the button | Button change colour when hovered over and modifies the game difficulty when clicked | Pass |
-| Reset Button | Button changes colour when user hovers the mouse over it. Pressing the button results in resetting the game | Hover mouse over the button & pressing the button | Buttons change colour when hovered over and resets the game | Pass |
+| Easy Button | Button changes colour when user hovers the mouse over it. Pressing the button results in changing the difficulty of the game to easy | Hover mouse over the button & pressing the button | Button changes colour when hovered over and modifies the game difficulty when clicked | Pass |
+| Medium Button | Button changes colour when user hovers the mouse over it. Pressing the button results in changing the difficulty of the game to medium | Hover mouse over the button & pressing the button | Button changes colour when hovered over and modifies the game difficulty when clicked | Pass |
+| Hard Button | Button changes colour when user hovers the mouse over it. Pressing the button results in changing the difficulty of the game to hard | Hover mouse over the button & pressing the button | Button changes colour when hovered over and modifies the game difficulty when clicked | Pass |
+| Reset Button | Button changes colour when user hovers the mouse over it. Pressing the button results in resetting the game | Hover mouse over the button & pressing the button | Button changes colour when hovered over and resets the game when clicked | Pass |
 
 ### **Home Page**
 
@@ -252,18 +252,13 @@ If you need to make a local clone:
 
 ### CODE VALIDATORS
 
-The W3C Markup Validator and W3C CSS Validator was used to validate my project to make sure there were no errors within the site.
+The W3C Markup Validator and W3C CSS Validator were used to validate my project to make sure there were no errors within the site.
 
 * W3C HTML Validator Results
     * [HTML]()
 * W3C CSS Validator Results
     * [CSS]()
 * JavaScript Validator
- 
-
-### FULL TESTING
-
-[Click Here](testing.md) to view the full testing steps that were completed on every device and browser.
 
 ### LIGHTHOUSE
 
