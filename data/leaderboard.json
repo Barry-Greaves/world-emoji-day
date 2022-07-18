@@ -1,34 +1,19 @@
 [
     {
-    "playerName": "Simon",
-    "difficulty": "easy",
-    "score": 156
-    },
-    {
     "playerName": "Hrafn",
     "difficulty": "hard",
-    "score": 250
+    "score": 150
     },
     {
     "playerName": "Kate",
     "difficulty": "medium",
     "score": 136
-    },
-    {
-    "playerName": "Sophie",
-    "difficulty": "easy",
-    "score": 186
-    },
-    {
-    "playerName": "Liam",
-    "difficulty": "hard",
-    "score": 156
     }
     ,
     {
     "playerName": "Barry-G",
     "difficulty": "medium",
-    "score": 260
+    "score": 150
     }
     ,
     {
@@ -46,25 +31,14 @@
     {
     "playerName": "Matej",
     "difficulty": "medium",
-    "score": 253
+    "score": 153
     }
     ,
     {
     "playerName": "Farrukh",
     "difficulty": "medium",
-    "score": 226
-    }
-    ,
-    {
-    "playerName": "Jake",
-    "difficulty": "medium",
     "score": 126
     }
-    ,
-    {
-    "playerName": "Amy",
-    "difficulty": "medium",
-    "score": 226
-    }
+    
     
 ]
