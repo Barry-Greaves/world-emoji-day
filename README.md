@@ -5,7 +5,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/Barry-Greaves/world-emoji-day)
 ![GitHub top language](https://img.shields.io/github/languages/top/Barry-Greaves/world-emoji-day)
 
-[Here is a link to the final project](https://barry-greaves.github.io/world-emoji-day/)
+[Here is a link to the final project](https://emoji-match.herokuapp.com/leaderboard.html)
 
 ## INITIAL DESIGN
 * The initial idea for this project was to create a fun, interactive card matching game with a Emoji theme that can be enjoyed by anyone. My target audience is anyone who is interested in games and also Emojis. The target demographic is incredibly mixed and covers people of all ages and genders.
