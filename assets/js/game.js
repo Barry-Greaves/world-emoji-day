@@ -348,6 +348,9 @@ function saveScore() {
     let playerName = getPlayerName();
     let difficulty = selectedLevel;
     let score = getScore();
+    console.log(playerName);
+    console.log(difficulty);
+    console.log(score);
 
 
     const url = `save_score.php?playerName=${playerName}&difficulty=${difficulty}&score=${score}`;

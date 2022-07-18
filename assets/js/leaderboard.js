@@ -25,7 +25,7 @@ function buildTable(leaderboard) {
   for (var i = 0; i < 10; i++) {
     var row = `<tr>
                     <td>${i+1}</td> 
-                    <td>${leaderboard[i].name}</td> 
+                    <td>${leaderboard[i].playerName}</td> 
                     <td>${leaderboard[i].difficulty}</td>
                     <td>${leaderboard[i].score}</td> 
               </tr>`

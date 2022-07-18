@@ -14,7 +14,7 @@ $json_arr = json_decode($data,true);
   
 // Get values passed over from end of the game
 $json_arr[] = array('playerName' => $_GET['playerName'],
-                    'difficulty' => $_GETT['difficulty'],
+                    'difficulty' => $_GET['difficulty'],
                     'score' => $_GET['score']);
 
 // save the data to json
