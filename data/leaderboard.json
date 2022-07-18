@@ -1,68 +1,68 @@
 [
     {
-    "name": "Simon",
+    "playerName": "Simon",
     "difficulty": "easy",
     "score": 156
     },
     {
-    "name": "Hrafn",
+    "playerName": "Hrafn",
     "difficulty": "hard",
     "score": 250
     },
     {
-    "name": "Kate",
+    "playerName": "Kate",
     "difficulty": "medium",
     "score": 136
     },
     {
-    "name": "Sophie",
+    "playerName": "Sophie",
     "difficulty": "easy",
     "score": 186
     },
     {
-    "name": "Liam",
+    "playerName": "Liam",
     "difficulty": "hard",
     "score": 156
     }
     ,
     {
-    "name": "Barry-G",
+    "playerName": "Barry-G",
     "difficulty": "medium",
     "score": 260
     }
     ,
     {
-    "name": "Sejung",
+    "playerName": "Sejung",
     "difficulty": "medium",
     "score": 196
     }
     ,
     {
-    "name": "Manni",
+    "playerName": "Manni",
     "difficulty": "medium",
     "score": 206
     }
     ,
     {
-    "name": "Matej",
+    "playerName": "Matej",
     "difficulty": "medium",
     "score": 253
     }
     ,
     {
-    "name": "Farrukh",
+    "playerName": "Farrukh",
     "difficulty": "medium",
     "score": 226
     }
     ,
     {
-    "name": "Jake",
+    "playerName": "Jake",
     "difficulty": "medium",
     "score": 126
     }
     ,
     {
-    "name": "Amy",
+    "playerName": "Amy",
     "difficulty": "medium",
     "score": 226
     }
