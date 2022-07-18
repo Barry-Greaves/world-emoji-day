@@ -115,11 +115,11 @@ The site features a fully responsive design and contains 2 pages(Home, Leaderboa
 
 ### LANGUAGES USED
 
-<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-plain-wordmark.svg" alt="HTML logo" width="50px" height="50px" />  <img 
-src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg" 
-alt="CSS logo" width="50px" height="50px" /> <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" 
-alt="JavaScript logo" width="50px" height="50px" /> <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-plain-wordmark.svg" 
-alt="Bootstrap logo" height="50px" width="50px" />   
+<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-plain-wordmark.svg" alt="HTML logo" width="50px" height="50px" />  
+<img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg" alt="CSS logo" width="50px" height="50px" /> 
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" alt="JavaScript logo" width="50px" height="50px" /> 
+<img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="Bootstrap logo" height="50px" width="50px" />   
+<img src="https://github.com/devicons/devicon/blob/master/icons/php/php-plain.svg" alt="PHP logo" height="50px" width="50px" />  
 
 ### PROGRAMS USED
 
