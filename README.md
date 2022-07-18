@@ -126,8 +126,8 @@ The site features a fully responsive design and contains 2 pages(Home & Leaderbo
 #### Font Awesome:
 [Font Awesome](https://fontawesome.com/) was used for a few icons in the footer aspect of the site pages.
 
-#### Google Fonts:
-[Google Fonts](https://fonts.google.com/) was used for all the text content on the site pages.
+#### Adobe Fonts:
+[Adobe Fonts](https://fonts.adobe.com/) was used for all the text content on the site pages.
 
 #### Git
 [Git](https://git-scm.com/) was used for version control by using the Gitpod terminal to add and commit to Git and push to Github.
