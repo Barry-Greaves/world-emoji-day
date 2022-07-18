@@ -25,7 +25,7 @@ file_put_contents($filename, json_encode($json_arr));
 <div class="loader"></div>
 
 <script type="text/javascript">
-   const url = `index.html`;
+   const url = `leaderboard.html`;
    setTimeout(function() {
    window.location.href = url;
   },500);
