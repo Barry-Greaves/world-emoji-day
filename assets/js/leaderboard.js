@@ -1,13 +1,11 @@
 let leaderboardData;
 
-
 // Load leaderboard from local json file then sort by score
 async function leaderboard() {
   // load JSON File
   const response = await fetch("data/leaderboard.json");
   // parse JSON string to an object
   leaderboardData = await response.json();
-  console.log(leaderboardData);
   // Sort the array of results from heighest to lowest
   leaderboardData.sort(function (a, b) {
     return b.score - a.score;
@@ -23,6 +21,7 @@ function buildTable(leaderboard) {
   var table = document.getElementById('myTable');
   
   for (var i = 0; i < 10; i++) {
+    
     var row = `<tr>
                     <td>${i+1}</td> 
                     <td>${leaderboard[i].playerName}</td> 
@@ -35,6 +34,5 @@ function buildTable(leaderboard) {
 
 // Call the functions
 leaderboard();
-buildTable(leaderboard);
 
 
