@@ -99,7 +99,7 @@ replayBtn.addEventListener("click", () => {
 
 replayForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    saveScoregit();
+    saveScore();
     winModal.style.display = "none";
     resetGame();
 });
